@@ -121,7 +121,7 @@ d3.json('lamiales_hierarchy.json').then(data => {
         })
         .attr('x', d => {
             // Horizontal offset from node
-            if (d.depth === 0) return 35; // root node - more padding to avoid overlap with circle
+            if (d.depth === 0) return 63; // root node - more padding to avoid overlap with circle
             if (d.depth === 1) return d.x < Math.PI === !d.children ? 15 : -15; // families
             return d.x < Math.PI === !d.children ? 12 : -12; // genera
         })
@@ -130,7 +130,7 @@ d3.json('lamiales_hierarchy.json').then(data => {
             return d.x < Math.PI === !d.children ? 'start' : 'end';
         })
         .attr('transform', d => {
-            if (d.depth === 0) return 'rotate(-90)'; // rotate root label 90 degrees
+            if (d.depth === 0) return 'rotate(-105)'; // rotate root label 90 degrees
             return d.x >= Math.PI ? 'rotate(180)' : null;
         })
         .text(d => d.data.name)
