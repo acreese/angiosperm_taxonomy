@@ -13,7 +13,63 @@
             <p class="subtitle">A radial visualization of flowering plant taxonomy</p>
         </header>
 
-        <div id="visualization"></div>
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="panel legend-panel">
+                    <h3>Legend</h3>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <svg width="20" height="20">
+                                <circle cx="10" cy="10" r="8" class="legend-circle-order"></circle>
+                            </svg>
+                            <span>Order</span>
+                        </div>
+                        <div class="legend-item">
+                            <svg width="20" height="20">
+                                <circle cx="10" cy="10" r="6" class="legend-circle-family"></circle>
+                            </svg>
+                            <span>Family</span>
+                        </div>
+                        <div class="legend-item">
+                            <svg width="20" height="20">
+                                <circle cx="10" cy="10" r="4" class="legend-circle-genus"></circle>
+                            </svg>
+                            <span>Genus</span>
+                        </div>
+                        <div class="legend-item">
+                            <svg width="20" height="20">
+                                <circle cx="10" cy="10" r="3" class="legend-circle-species"></circle>
+                            </svg>
+                            <span>Species</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel stats-panel">
+                    <h3>Statistics</h3>
+                    <div class="stats-items">
+                        <div class="stat-item">
+                            <span class="stat-label">Total Nodes:</span>
+                            <span class="stat-value" id="stat-total">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Families:</span>
+                            <span class="stat-value" id="stat-families">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Genera:</span>
+                            <span class="stat-value" id="stat-genera">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Species:</span>
+                            <span class="stat-value" id="stat-species">-</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <div id="visualization"></div>
+        </div>
 
         <div id="tooltip" class="tooltip"></div>
     </div>

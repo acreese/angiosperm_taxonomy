@@ -134,8 +134,20 @@ d3.json('lamiales_hierarchy.json').then(data => {
         .style('font-size', d => d.depth === 0 ? '14px' : d.depth === 1 ? '11px' : '9px')
         .style('font-weight', d => d.depth === 0 ? 'bold' : 'normal');
 
-    console.log(`Visualization loaded: ${root.descendants().length} total nodes`);
-    console.log(`Depth levels: ${root.height + 1}`);
+    // Calculate and display statistics
+    const allNodes = root.descendants();
+    const families = allNodes.filter(d => d.data.level === 'family').length;
+    const genera = allNodes.filter(d => d.data.level === 'genus').length;
+    const species = allNodes.filter(d => d.data.level === 'species').length;
+
+    // Update statistics panel
+    d3.select('#stat-total').text(allNodes.length);
+    d3.select('#stat-families').text(families);
+    d3.select('#stat-genera').text(genera);
+    d3.select('#stat-species').text(species);
+
+    console.log(`Visualization loaded: ${allNodes.length} total nodes`);
+    console.log(`Families: ${families}, Genera: ${genera}, Species: ${species}`);
 }).catch(error => {
     console.error('Error loading data:', error);
     d3.select('#visualization')
