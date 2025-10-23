@@ -110,74 +110,29 @@ d3.json('lamiales_hierarchy.json').then(data => {
             tooltip.classed('visible', false);
         });
 
-    // Add curved text labels
-    // First, create a group for text paths
-    const textNodes = nodes.filter(d => d.depth <= 2);
-
-    // Add curved labels for families and genera
-    textNodes.each(function(d, i) {
-        const node = d3.select(this);
-
-        if (d.depth === 0) {
-            // Keep root label straight
-            node.append('text')
-                .attr('dy', '0.31em')
-                .attr('x', 15)
-                .attr('text-anchor', 'start')
-                .text(d.data.name)
-                .style('font-size', '14px')
-                .style('font-weight', 'bold');
-        } else {
-            // Create curved text for families and genera
-            const angle = d.x;
-            const radius = d.y;
-            const textRadius = radius + (d.depth === 1 ? 15 : 10); // Offset from node
-
-            // Create unique ID for path
-            const pathId = `text-path-${i}`;
-
-            // Determine arc direction and span based on position
-            const isRightSide = angle < Math.PI;
-            const arcSpan = 0.3; // Arc length in radians
-
-            let startAngle, endAngle;
-            if (isRightSide) {
-                startAngle = angle - arcSpan / 2;
-                endAngle = angle + arcSpan / 2;
-            } else {
-                // Flip for left side so text reads correctly
-                startAngle = angle + arcSpan / 2;
-                endAngle = angle - arcSpan / 2;
-            }
-
-            // Convert to Cartesian coordinates
-            const x1 = textRadius * Math.sin(startAngle);
-            const y1 = -textRadius * Math.cos(startAngle);
-            const x2 = textRadius * Math.sin(endAngle);
-            const y2 = -textRadius * Math.cos(endAngle);
-
-            // Create arc path
-            const arcPath = d3.path();
-            arcPath.moveTo(x1, y1);
-            arcPath.arc(0, 0, textRadius, startAngle - Math.PI/2, endAngle - Math.PI/2, !isRightSide);
-
-            // Add path definition to SVG defs
-            svg.append('defs')
-                .append('path')
-                .attr('id', pathId)
-                .attr('d', arcPath.toString());
-
-            // Add text along the path
-            node.append('text')
-                .append('textPath')
-                .attr('href', `#${pathId}`)
-                .attr('startOffset', '50%')
-                .attr('text-anchor', 'middle')
-                .text(d.data.name)
-                .style('font-size', d.depth === 1 ? '11px' : '9px')
-                .style('font-weight', 'normal');
-        }
-    });
+    // Add text labels (only for families and genera, to avoid clutter)
+    nodes.filter(d => d.depth <= 2)
+        .append('text')
+        .attr('dy', d => {
+            // Vertical offset adjustment
+            if (d.depth === 0) return '0.31em'; // center node
+            if (d.depth === 1) return '-0.5em'; // families - offset above line
+            return '-0.5em'; // genera - offset above line
+        })
+        .attr('x', d => {
+            // Horizontal offset from node - larger for root and families
+            if (d.depth === 0) return 15; // root node - more space
+            if (d.depth === 1) return d.x < Math.PI === !d.children ? 12 : -12; // families - more space
+            return d.x < Math.PI === !d.children ? 6 : -6; // genera
+        })
+        .attr('text-anchor', d => {
+            if (d.depth === 0) return 'start'; // root always starts from right
+            return d.x < Math.PI === !d.children ? 'start' : 'end';
+        })
+        .attr('transform', d => d.x >= Math.PI ? 'rotate(180)' : null)
+        .text(d => d.data.name)
+        .style('font-size', d => d.depth === 0 ? '14px' : d.depth === 1 ? '11px' : '9px')
+        .style('font-weight', d => d.depth === 0 ? 'bold' : 'normal');
 
     // Calculate and display statistics
     const allNodes = root.descendants();
