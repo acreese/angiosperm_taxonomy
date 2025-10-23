@@ -275,8 +275,14 @@ function loadVisualization(filename) {
                     ${d.data.level === 'species' && (d.data.discoveryYear || d.data.authorship) ?
                         `<div class="taxon-metadata">${d.data.discoveryYear || ''} ${d.data.discoveryYear && d.data.authorship ? '|' : ''} ${d.data.authorship || ''}</div>`
                         : ''}
+                    ${d.children && d.data.actualChildCount ?
+                        `<div class="taxon-counts">
+                            ${d.children.length} ${d.data.level === 'order' ? 'families' : d.data.level === 'family' ? 'genera' : 'species'} displayed |
+                            ${d.data.actualChildCount} total
+                            (${Math.round((d.children.length / d.data.actualChildCount) * 100)}%)
+                        </div>`
+                        : ''}
                     <div class="taxon-level">Level: ${d.data.level}</div>
-                    ${d.children ? `<div>Children: ${d.children.length}</div>` : ''}
                 `)
                 .style('left', (event.pageX + 10) + 'px')
                 .style('top', (event.pageY - 10) + 'px');
