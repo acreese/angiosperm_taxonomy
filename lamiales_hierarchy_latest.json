@@ -2,6 +2,11 @@
   "name": "Lamiales",
   "level": "order",
   "actualChildCount": 10,
+  "metadata": {
+    "totalFamiliesInLamiales": 31,
+    "totalGeneraInLamiales": 1219,
+    "totalSpeciesInLamiales": 31583
+  },
   "children": [
     {
       "name": "Lamiaceae",
