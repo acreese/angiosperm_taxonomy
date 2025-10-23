@@ -66,6 +66,13 @@ h1 {
 }
 
 /* Legend styles */
+.legend-note {
+    font-size: 0.75rem;
+    color: #666;
+    font-style: italic;
+    margin: -8px 0 8px 0;
+}
+
 .legend-items {
     display: flex;
     flex-direction: column;
@@ -80,19 +87,19 @@ h1 {
 }
 
 .legend-circle-order {
-    fill: #1a4d1b;  /* Deep forest green */
+    fill: hsl(120, 40%, 20%);  /* Dark green for order */
 }
 
 .legend-circle-family {
-    fill: #2d7a30;  /* Medium forest green */
+    fill: hsl(120, 50%, 30%);  /* Family example - dark */
 }
 
 .legend-circle-genus {
-    fill: #5ba85e;  /* Light green */
+    fill: hsl(120, 45%, 50%);  /* Genus example - medium */
 }
 
 .legend-circle-species {
-    fill: #a8d5aa;  /* Pale green */
+    fill: hsl(120, 40%, 70%);  /* Species example - light */
 }
 
 /* Stats styles */

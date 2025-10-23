@@ -3,13 +3,58 @@ const width = 1200;
 const height = 1200;
 const radius = Math.min(width, height) / 2 - 100;
 
-// Color scale for different taxonomic levels (dark to light gradient)
-const colorScale = {
-    order: '#1a4d1b',      // Deep forest green (darkest, most saturated)
-    family: '#2d7a30',     // Medium forest green
-    genus: '#5ba85e',      // Light green
-    species: '#a8d5aa'     // Pale green (lightest)
-};
+// Base hues for each family (10 distinct colors)
+const familyHues = [
+    { h: 120, s: 50, name: 'green' },      // Green
+    { h: 200, s: 55, name: 'blue' },       // Blue
+    { h: 280, s: 45, name: 'purple' },     // Purple
+    { h: 180, s: 50, name: 'teal' },       // Teal
+    { h: 30, s: 60, name: 'orange' },      // Orange
+    { h: 160, s: 50, name: 'jade' },       // Jade
+    { h: 260, s: 50, name: 'violet' },     // Violet
+    { h: 340, s: 45, name: 'magenta' },    // Magenta
+    { h: 60, s: 55, name: 'lime' },        // Lime
+    { h: 220, s: 50, name: 'indigo' }      // Indigo
+];
+
+// Function to get color for a node based on its family and depth
+function getNodeColor(node) {
+    // Find which family this node belongs to
+    let familyNode = node;
+    while (familyNode && familyNode.depth > 1) {
+        familyNode = familyNode.parent;
+    }
+
+    // If this is order level, use neutral dark green
+    if (node.depth === 0) {
+        return 'hsl(120, 40%, 20%)'; // Dark green for Lamiales
+    }
+
+    // Get family index (use node itself if it's a family, or find parent family)
+    let familyIndex = 0;
+    if (familyNode && familyNode.depth === 1) {
+        // Find index of this family among all families
+        const allFamilies = familyNode.parent.children;
+        familyIndex = allFamilies.indexOf(familyNode) % familyHues.length;
+    }
+
+    const baseHue = familyHues[familyIndex];
+
+    // Apply dark-to-light gradient based on depth
+    let lightness, saturation;
+    if (node.depth === 1) { // Family
+        lightness = 30;
+        saturation = baseHue.s;
+    } else if (node.depth === 2) { // Genus
+        lightness = 50;
+        saturation = baseHue.s - 5;
+    } else { // Species
+        lightness = 70;
+        saturation = baseHue.s - 10;
+    }
+
+    return `hsl(${baseHue.h}, ${saturation}%, ${lightness}%)`;
+}
 
 // Create SVG container
 const svgElement = d3.select('#visualization')
@@ -152,7 +197,7 @@ d3.json('lamiales_hierarchy.json').then(data => {
             if (d.depth === 2) return 6; // genus (1.5x original)
             return 3; // species (unchanged)
         })
-        .style('fill', d => colorScale[d.data.level] || '#97d492')
+        .style('fill', d => getNodeColor(d))
         .style('cursor', d => d.children ? 'pointer' : 'default') // pointer for clickable nodes
         .on('click', function(event, d) {
             event.stopPropagation();
