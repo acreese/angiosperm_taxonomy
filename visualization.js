@@ -388,16 +388,11 @@ function loadVisualization(filename) {
     const genera = allNodes.filter(d => d.data.level === 'genus').length;
     const species = allNodes.filter(d => d.data.level === 'species').length;
 
-    // Calculate actual totals from actualChildCount fields
-    const actualFamilies = root.data.actualChildCount || families;
-
-    // Sum all family nodes' actualChildCount for total genera
-    const familyNodes = allNodes.filter(d => d.data.level === 'family');
-    const actualGenera = familyNodes.reduce((sum, node) => sum + (node.data.actualChildCount || 0), 0);
-
-    // Sum all genus nodes' actualChildCount for total species
-    const genusNodes = allNodes.filter(d => d.data.level === 'genus');
-    const actualSpecies = genusNodes.reduce((sum, node) => sum + (node.data.actualChildCount || 0), 0);
+    // Get TRUE totals for ALL of Lamiales from metadata
+    const metadata = root.data.metadata || {};
+    const trueFamilies = metadata.totalFamiliesInLamiales || families;
+    const trueGenera = metadata.totalGeneraInLamiales || 0;
+    const trueSpecies = metadata.totalSpeciesInLamiales || 0;
 
     // Update statistics panel - displayed counts
     d3.select('#stat-total').text(allNodes.length);
@@ -405,10 +400,10 @@ function loadVisualization(filename) {
     d3.select('#stat-genera').text(genera);
     d3.select('#stat-species').text(species);
 
-    // Update statistics panel - actual totals
-    d3.select('#stat-families-actual').text(actualFamilies);
-    d3.select('#stat-genera-actual').text(actualGenera.toLocaleString());
-    d3.select('#stat-species-actual').text(actualSpecies.toLocaleString());
+    // Update statistics panel - actual totals (TRUE totals for ALL of Lamiales)
+    d3.select('#stat-families-actual').text(trueFamilies);
+    d3.select('#stat-genera-actual').text(trueGenera.toLocaleString());
+    d3.select('#stat-species-actual').text(trueSpecies.toLocaleString());
 
     // Click SVG background to reset zoom
     svgElement.on('click', function(event) {
