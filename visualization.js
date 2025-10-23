@@ -4,8 +4,8 @@ const height = 1200;
 const radius = Math.min(width, height) / 2 - 100;
 
 // Hue range for gradient around circle
-const HUE_START = 100;  // Lime-green
-const HUE_END = 260;    // Purple
+const HUE_START = 80;  // Lime-green
+const HUE_END = 300;    // Purple
 const BASE_SATURATION = 50;
 
 // Map to store family hue assignments
@@ -360,7 +360,7 @@ function loadVisualization(filename) {
             return d.x < Math.PI === !d.children ? 'start' : 'end';
         })
         .attr('transform', d => {
-            if (d.depth === 0) return 'rotate(-154)'; // rotate root label 90 degrees
+            if (d.depth === 0) return 'rotate(-157)'; // rotate root label 90 degrees
             return d.x >= Math.PI ? 'rotate(180)' : null;
         })
         .text(d => d.data.name)
