@@ -69,7 +69,20 @@
                 </div>
 
                 <div class="panel controls-panel">
-                    <h3>Controls</h3>
+                    <h3>Discovery Period</h3>
+                    <div class="toggle-group">
+                        <label class="radio-label">
+                            <input type="radio" name="discovery-view" value="earliest" checked>
+                            <span>Earliest Discovered</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="discovery-view" value="latest">
+                            <span>Latest Discovered</span>
+                        </label>
+                    </div>
+                    <p class="toggle-hint">Earliest: 1700s-1800s | Latest: 1900s-2000s</p>
+
+                    <h3 style="margin-top: 20px;">Zoom</h3>
                     <button id="reset-zoom" class="reset-button" onclick="window.resetVisualizationZoom && window.resetVisualizationZoom()">
                         Reset Zoom
                     </button>

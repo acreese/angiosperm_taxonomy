@@ -76,9 +76,15 @@ const tree = d3.cluster()
 // Tooltip
 const tooltip = d3.select('#tooltip');
 
-// Load and visualize data
-//d3.json('lamiales_hierarchy.json').then(data => {
-d3.json('lamiales_hierarchy_proportional.json').then(data => {
+// Function to load and render visualization
+function loadVisualization(filename) {
+    // Clear existing visualization
+    svg.selectAll('*').remove();
+    familyHueMap.clear();
+    currentFocus = null;
+
+    // Load and visualize data
+    d3.json(filename).then(data => {
     // Create hierarchy
     const root = d3.hierarchy(data);
 
@@ -387,4 +393,23 @@ d3.json('lamiales_hierarchy_proportional.json').then(data => {
         .style('color', 'red')
         .style('padding', '20px')
         .text('Error loading data. Please check the console for details.');
+    });
+}
+
+// Map radio button values to filenames
+const dataFiles = {
+    'earliest': 'lamiales_hierarchy_proportional.json',
+    'latest': 'lamiales_hierarchy_latest.json'
+};
+
+// Add event listeners for toggle
+document.querySelectorAll('input[name="discovery-view"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        const selectedFile = dataFiles[this.value];
+        console.log(`Switching to ${this.value} discoveries...`);
+        loadVisualization(selectedFile);
+    });
 });
+
+// Initial load with earliest discovered (default)
+loadVisualization(dataFiles['earliest']);
