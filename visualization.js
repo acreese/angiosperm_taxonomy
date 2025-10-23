@@ -77,7 +77,8 @@ const tree = d3.cluster()
 const tooltip = d3.select('#tooltip');
 
 // Load and visualize data
-d3.json('lamiales_hierarchy.json').then(data => {
+//d3.json('lamiales_hierarchy.json').then(data => {
+d3.json('lamiales_hierarchy_proportional.json').then(data => {
     // Create hierarchy
     const root = d3.hierarchy(data);
 
@@ -344,7 +345,7 @@ d3.json('lamiales_hierarchy.json').then(data => {
             return d.x < Math.PI === !d.children ? 'start' : 'end';
         })
         .attr('transform', d => {
-            if (d.depth === 0) return 'rotate(-105)'; // rotate root label 90 degrees
+            if (d.depth === 0) return 'rotate(-154)'; // rotate root label 90 degrees
             return d.x >= Math.PI ? 'rotate(180)' : null;
         })
         .text(d => d.data.name)

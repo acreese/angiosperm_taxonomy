@@ -15,77 +15,88 @@
               "level": "species",
               "canonicalName": "Salvia viridis",
               "taxonID": 3883959,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Salvia ceratophylla",
               "level": "species",
               "canonicalName": "Salvia ceratophylla",
               "taxonID": 7702993,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Salvia glutinosa",
               "level": "species",
               "canonicalName": "Salvia glutinosa",
               "taxonID": 2927026,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Salvia sclarea",
               "level": "species",
               "canonicalName": "Salvia sclarea",
               "taxonID": 2927000,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Salvia indica",
               "level": "species",
               "canonicalName": "Salvia indica",
               "taxonID": 3899535,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Salvia aethiopis",
               "level": "species",
               "canonicalName": "Salvia aethiopis",
               "taxonID": 2927030,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Salvia pomifera",
               "level": "species",
               "canonicalName": "Salvia pomifera",
               "taxonID": 3891602,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Salvia hispanica",
               "level": "species",
               "canonicalName": "Salvia hispanica",
               "taxonID": 2926992,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Salvia aegyptiaca",
               "level": "species",
               "canonicalName": "Salvia aegyptiaca",
               "taxonID": 10667710,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Salvia dominica",
               "level": "species",
               "canonicalName": "Salvia dominica",
               "taxonID": 3903762,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Salvia sylvestris",
               "level": "species",
               "canonicalName": "Salvia sylvestris",
               "taxonID": 2926990,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -98,35 +109,40 @@
               "level": "species",
               "canonicalName": "Scutellaria lateriflora",
               "taxonID": 5341325,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Scutellaria altissima",
               "level": "species",
               "canonicalName": "Scutellaria altissima",
               "taxonID": 5341373,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Scutellaria indica",
               "level": "species",
               "canonicalName": "Scutellaria indica",
               "taxonID": 7308714,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Scutellaria alpina",
               "level": "species",
               "canonicalName": "Scutellaria alpina",
               "taxonID": 7309071,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Scutellaria supina",
               "level": "species",
               "canonicalName": "Scutellaria supina",
               "taxonID": 5608080,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -139,28 +155,32 @@
               "level": "species",
               "canonicalName": "Thymus pulegioides",
               "taxonID": 5341443,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Thymus villosus",
               "level": "species",
               "canonicalName": "Thymus villosus",
               "taxonID": 7593115,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Thymus serpyllum",
               "level": "species",
               "canonicalName": "Thymus serpyllum",
               "taxonID": 6409622,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Thymus zygis",
               "level": "species",
               "canonicalName": "Thymus zygis",
               "taxonID": 7793938,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -173,28 +193,32 @@
               "level": "species",
               "canonicalName": "Stachys cretica",
               "taxonID": 2927296,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Stachys palustris",
               "level": "species",
               "canonicalName": "Stachys palustris",
               "taxonID": 2927245,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Stachys glutinosa",
               "level": "species",
               "canonicalName": "Stachys glutinosa",
               "taxonID": 3882844,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Stachys alpina",
               "level": "species",
               "canonicalName": "Stachys alpina",
               "taxonID": 7306931,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -207,21 +231,24 @@
               "level": "species",
               "canonicalName": "Teucrium pyrenaicum",
               "taxonID": 7308145,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Teucrium canadense",
               "level": "species",
               "canonicalName": "Teucrium canadense",
               "taxonID": 2926899,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Teucrium capitatum",
               "level": "species",
               "canonicalName": "Teucrium capitatum",
               "taxonID": 7308670,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -234,21 +261,24 @@
               "level": "species",
               "canonicalName": "Nepeta multifida",
               "taxonID": 7491011,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Nepeta nuda",
               "level": "species",
               "canonicalName": "Nepeta nuda",
               "taxonID": 7309059,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Nepeta cataria",
               "level": "species",
               "canonicalName": "Nepeta cataria",
               "taxonID": 5341499,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -261,21 +291,24 @@
               "level": "species",
               "canonicalName": "Coleus amboinicus",
               "taxonID": 5341313,
-              "discoveryYear": 1790
+              "discoveryYear": 1790,
+              "authorship": "Lour."
             },
             {
               "name": "Coleus barbatus",
               "level": "species",
               "canonicalName": "Coleus barbatus",
               "taxonID": 8030165,
-              "discoveryYear": 1830
+              "discoveryYear": 1830,
+              "authorship": "(Andrews) Benth. ex G.Don"
             },
             {
               "name": "Coleus scutellarioides",
               "level": "species",
               "canonicalName": "Coleus scutellarioides",
               "taxonID": 5341492,
-              "discoveryYear": 1830
+              "discoveryYear": 1830,
+              "authorship": "(L.) Benth."
             }
           ]
         },
@@ -288,14 +321,16 @@
               "level": "species",
               "canonicalName": "Clerodendrum infortunatum",
               "taxonID": 3892486,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Clerodendrum fortunatum",
               "level": "species",
               "canonicalName": "Clerodendrum fortunatum",
               "taxonID": 3893244,
-              "discoveryYear": 1756
+              "discoveryYear": 1756,
+              "authorship": "L."
             }
           ]
         },
@@ -308,14 +343,16 @@
               "level": "species",
               "canonicalName": "Vitex negundo",
               "taxonID": 2925564,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Vitex pinnata",
               "level": "species",
               "canonicalName": "Vitex pinnata",
               "taxonID": 7309306,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -328,14 +365,16 @@
               "level": "species",
               "canonicalName": "Sideritis perfoliata",
               "taxonID": 7307504,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Sideritis cretica",
               "level": "species",
               "canonicalName": "Sideritis cretica",
               "taxonID": 7862362,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -348,14 +387,16 @@
               "level": "species",
               "canonicalName": "Clinopodium vulgare",
               "taxonID": 2926945,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Clinopodium carolinianum",
               "level": "species",
               "canonicalName": "Clinopodium carolinianum",
               "taxonID": 3887869,
-              "discoveryYear": 1768
+              "discoveryYear": 1768,
+              "authorship": "Mill."
             }
           ]
         },
@@ -368,14 +409,16 @@
               "level": "species",
               "canonicalName": "Hyptis capitata",
               "taxonID": 2926815,
-              "discoveryYear": 1787
+              "discoveryYear": 1787,
+              "authorship": "Jacq."
             },
             {
               "name": "Hyptis brevipes",
               "level": "species",
               "canonicalName": "Hyptis brevipes",
               "taxonID": 7306536,
-              "discoveryYear": 1806
+              "discoveryYear": 1806,
+              "authorship": "Poit."
             }
           ]
         },
@@ -388,14 +431,16 @@
               "level": "species",
               "canonicalName": "Callicarpa americana",
               "taxonID": 5341129,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Callicarpa tomentosa",
               "level": "species",
               "canonicalName": "Callicarpa tomentosa",
               "taxonID": 5609141,
-              "discoveryYear": 1774
+              "discoveryYear": 1774,
+              "authorship": "(L.) L."
             }
           ]
         },
@@ -408,14 +453,16 @@
               "level": "species",
               "canonicalName": "Mentha arvensis",
               "taxonID": 2927192,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Mentha aquatica",
               "level": "species",
               "canonicalName": "Mentha aquatica",
               "taxonID": 2927208,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -428,14 +475,16 @@
               "level": "species",
               "canonicalName": "Phlomoides tuberosa",
               "taxonID": 3884879,
-              "discoveryYear": 1794
+              "discoveryYear": 1794,
+              "authorship": "(L.) Moench"
             },
             {
               "name": "Phlomoides cordifolia",
               "level": "species",
               "canonicalName": "Phlomoides cordifolia",
               "taxonID": 3885708,
-              "discoveryYear": 1986
+              "discoveryYear": 1986,
+              "authorship": "(Regel) Adylov, Kamelin & Makhm."
             }
           ]
         },
@@ -448,14 +497,16 @@
               "level": "species",
               "canonicalName": "Aegiphila martinicensis",
               "taxonID": 2925466,
-              "discoveryYear": 1767
+              "discoveryYear": 1767,
+              "authorship": "Jacq."
             },
             {
               "name": "Aegiphila elata",
               "level": "species",
               "canonicalName": "Aegiphila elata",
               "taxonID": 2925469,
-              "discoveryYear": 1788
+              "discoveryYear": 1788,
+              "authorship": "Sw."
             }
           ]
         },
@@ -468,14 +519,16 @@
               "level": "species",
               "canonicalName": "Premna serratifolia",
               "taxonID": 6411486,
-              "discoveryYear": 1771
+              "discoveryYear": 1771,
+              "authorship": "L."
             },
             {
               "name": "Premna tomentosa",
               "level": "species",
               "canonicalName": "Premna tomentosa",
               "taxonID": 7657266,
-              "discoveryYear": 1800
+              "discoveryYear": 1800,
+              "authorship": "Willd."
             }
           ]
         },
@@ -488,14 +541,16 @@
               "level": "species",
               "canonicalName": "Phlomis herba-venti",
               "taxonID": 7307235,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Phlomis lychnitis",
               "level": "species",
               "canonicalName": "Phlomis lychnitis",
               "taxonID": 3887383,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         }
@@ -514,63 +569,72 @@
               "level": "species",
               "canonicalName": "Justicia adhatoda",
               "taxonID": 3173105,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Justicia hyssopifolia",
               "level": "species",
               "canonicalName": "Justicia hyssopifolia",
               "taxonID": 8370094,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Justicia carthaginensis",
               "level": "species",
               "canonicalName": "Justicia carthaginensis",
               "taxonID": 3173107,
-              "discoveryYear": 1760
+              "discoveryYear": 1760,
+              "authorship": "Jacq."
             },
             {
               "name": "Justicia moretiana",
               "level": "species",
               "canonicalName": "Justicia moretiana",
               "taxonID": 3774499,
-              "discoveryYear": 1768
+              "discoveryYear": 1768,
+              "authorship": "Burm.fil."
             },
             {
               "name": "Justicia gendarussa",
               "level": "species",
               "canonicalName": "Justicia gendarussa",
               "taxonID": 7447231,
-              "discoveryYear": 1768
+              "discoveryYear": 1768,
+              "authorship": "Burm.fil."
             },
             {
               "name": "Justicia caerulea",
               "level": "species",
               "canonicalName": "Justicia caerulea",
               "taxonID": 7603603,
-              "discoveryYear": 1775
+              "discoveryYear": 1775,
+              "authorship": "Forssk."
             },
             {
               "name": "Justicia tranquebariensis",
               "level": "species",
               "canonicalName": "Justicia tranquebariensis",
               "taxonID": 8304469,
-              "discoveryYear": 1781
+              "discoveryYear": 1781,
+              "authorship": "L.fil."
             },
             {
               "name": "Justicia orchioides",
               "level": "species",
               "canonicalName": "Justicia orchioides",
               "taxonID": 7263579,
-              "discoveryYear": 1782
+              "discoveryYear": 1782,
+              "authorship": "L.fil."
             },
             {
               "name": "Justicia odora",
               "level": "species",
               "canonicalName": "Justicia odora",
               "taxonID": 3773420,
-              "discoveryYear": 1785
+              "discoveryYear": 1785,
+              "authorship": "(Forssk.) Lam."
             }
           ]
         },
@@ -583,28 +647,32 @@
               "level": "species",
               "canonicalName": "Strobilanthes cernua",
               "taxonID": 3781671,
-              "discoveryYear": 1826
+              "discoveryYear": 1826,
+              "authorship": "Blume"
             },
             {
               "name": "Strobilanthes involucrata",
               "level": "species",
               "canonicalName": "Strobilanthes involucrata",
               "taxonID": 3768976,
-              "discoveryYear": 1826
+              "discoveryYear": 1826,
+              "authorship": "Blume"
             },
             {
               "name": "Strobilanthes hirta",
               "level": "species",
               "canonicalName": "Strobilanthes hirta",
               "taxonID": 3780484,
-              "discoveryYear": 1826
+              "discoveryYear": 1826,
+              "authorship": "(Vahl) Blume"
             },
             {
               "name": "Strobilanthes speciosa",
               "level": "species",
               "canonicalName": "Strobilanthes speciosa",
               "taxonID": 3778167,
-              "discoveryYear": 1826
+              "discoveryYear": 1826,
+              "authorship": "Blume"
             }
           ]
         },
@@ -617,21 +685,24 @@
               "level": "species",
               "canonicalName": "Ruellia tuberosa",
               "taxonID": 5415418,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Ruellia strepens",
               "level": "species",
               "canonicalName": "Ruellia strepens",
               "taxonID": 5415414,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Ruellia paniculata",
               "level": "species",
               "canonicalName": "Ruellia paniculata",
               "taxonID": 5573547,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -644,14 +715,16 @@
               "level": "species",
               "canonicalName": "Barleria cristata",
               "taxonID": 3173128,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Barleria buxifolia",
               "level": "species",
               "canonicalName": "Barleria buxifolia",
               "taxonID": 3773640,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -664,14 +737,16 @@
               "level": "species",
               "canonicalName": "Dicliptera resupinata",
               "taxonID": 5415372,
-              "discoveryYear": 1807
+              "discoveryYear": 1807,
+              "authorship": "(Vahl) Juss."
             },
             {
               "name": "Dicliptera sexangularis",
               "level": "species",
               "canonicalName": "Dicliptera sexangularis",
               "taxonID": 5415361,
-              "discoveryYear": 1807
+              "discoveryYear": 1807,
+              "authorship": "(L.) Juss."
             }
           ]
         },
@@ -684,14 +759,16 @@
               "level": "species",
               "canonicalName": "Aphelandra pulcherrima",
               "taxonID": 3173229,
-              "discoveryYear": 1817
+              "discoveryYear": 1817,
+              "authorship": "(Jacq.) Kunth"
             },
             {
               "name": "Aphelandra scabra",
               "level": "species",
               "canonicalName": "Aphelandra scabra",
               "taxonID": 7264013,
-              "discoveryYear": 1818
+              "discoveryYear": 1818,
+              "authorship": "(Vahl) Sm."
             }
           ]
         },
@@ -704,14 +781,16 @@
               "level": "species",
               "canonicalName": "Lepidagathis cristata",
               "taxonID": 3776967,
-              "discoveryYear": 1800
+              "discoveryYear": 1800,
+              "authorship": "Willd."
             },
             {
               "name": "Lepidagathis incurva",
               "level": "species",
               "canonicalName": "Lepidagathis incurva",
               "taxonID": 7263961,
-              "discoveryYear": 1825
+              "discoveryYear": 1825,
+              "authorship": "Buch.-Ham. ex D.Don"
             }
           ]
         },
@@ -724,14 +803,16 @@
               "level": "species",
               "canonicalName": "Staurogyne argentea",
               "taxonID": 7263746,
-              "discoveryYear": 1831
+              "discoveryYear": 1831,
+              "authorship": "Wall."
             },
             {
               "name": "Staurogyne coriacea",
               "level": "species",
               "canonicalName": "Staurogyne coriacea",
               "taxonID": 3774564,
-              "discoveryYear": 1891
+              "discoveryYear": 1891,
+              "authorship": "(T.Anderson ex C.B.Clarke) Kuntze"
             }
           ]
         },
@@ -744,14 +825,16 @@
               "level": "species",
               "canonicalName": "Thunbergia capensis",
               "taxonID": 3774621,
-              "discoveryYear": 1776
+              "discoveryYear": 1776,
+              "authorship": "Retz."
             },
             {
               "name": "Thunbergia fragrans",
               "level": "species",
               "canonicalName": "Thunbergia fragrans",
               "taxonID": 5415458,
-              "discoveryYear": 1795
+              "discoveryYear": 1795,
+              "authorship": "Roxb."
             }
           ]
         },
@@ -764,14 +847,16 @@
               "level": "species",
               "canonicalName": "Hypoestes purpurea",
               "taxonID": 3776907,
-              "discoveryYear": 1810
+              "discoveryYear": 1810,
+              "authorship": "(L.) R.Br."
             },
             {
               "name": "Hypoestes floribunda",
               "level": "species",
               "canonicalName": "Hypoestes floribunda",
               "taxonID": 7264072,
-              "discoveryYear": 1810
+              "discoveryYear": 1810,
+              "authorship": "R.Br."
             }
           ]
         },
@@ -784,14 +869,16 @@
               "level": "species",
               "canonicalName": "Pseuderanthemum alatum",
               "taxonID": 3774119,
-              "discoveryYear": 1883
+              "discoveryYear": 1883,
+              "authorship": "(Nees) Radlk."
             },
             {
               "name": "Pseuderanthemum hispidulum",
               "level": "species",
               "canonicalName": "Pseuderanthemum hispidulum",
               "taxonID": 3773156,
-              "discoveryYear": 1883
+              "discoveryYear": 1883,
+              "authorship": "(Nees) Radlk."
             }
           ]
         },
@@ -804,14 +891,16 @@
               "level": "species",
               "canonicalName": "Blepharis linariifolia",
               "taxonID": 5575474,
-              "discoveryYear": 1806
+              "discoveryYear": 1806,
+              "authorship": "Pers."
             },
             {
               "name": "Blepharis edulis",
               "level": "species",
               "canonicalName": "Blepharis edulis",
               "taxonID": 5575687,
-              "discoveryYear": 1806
+              "discoveryYear": 1806,
+              "authorship": "(Forssk.) Pers."
             }
           ]
         },
@@ -824,14 +913,16 @@
               "level": "species",
               "canonicalName": "Stenostephanus lasiostachyus",
               "taxonID": 3770461,
-              "discoveryYear": 1847
+              "discoveryYear": 1847,
+              "authorship": "Nees"
             },
             {
               "name": "Stenostephanus lobeliiformis",
               "level": "species",
               "canonicalName": "Stenostephanus lobeliiformis",
               "taxonID": 3770390,
-              "discoveryYear": 1847
+              "discoveryYear": 1847,
+              "authorship": "Nees"
             }
           ]
         },
@@ -844,14 +935,16 @@
               "level": "species",
               "canonicalName": "Dyschoriste radicans",
               "taxonID": 3771749,
-              "discoveryYear": 1847
+              "discoveryYear": 1847,
+              "authorship": "(Hochst. ex A.Rich.) Nees"
             },
             {
               "name": "Dyschoriste geniculata",
               "level": "species",
               "canonicalName": "Dyschoriste geniculata",
               "taxonID": 3772767,
-              "discoveryYear": 1847
+              "discoveryYear": 1847,
+              "authorship": "Nees"
             }
           ]
         },
@@ -864,14 +957,16 @@
               "level": "species",
               "canonicalName": "Mendoncia coccinea",
               "taxonID": 7263543,
-              "discoveryYear": 1829
+              "discoveryYear": 1829,
+              "authorship": "Vell."
             },
             {
               "name": "Mendoncia pilosa",
               "level": "species",
               "canonicalName": "Mendoncia pilosa",
               "taxonID": 7730685,
-              "discoveryYear": 1829
+              "discoveryYear": 1829,
+              "authorship": "Mart."
             }
           ]
         }
@@ -890,49 +985,56 @@
               "level": "species",
               "canonicalName": "Cyrtandra biflora",
               "taxonID": 5589065,
-              "discoveryYear": 1775
+              "discoveryYear": 1775,
+              "authorship": "J.R.Forst. & G.Forst."
             },
             {
               "name": "Cyrtandra cymosa",
               "level": "species",
               "canonicalName": "Cyrtandra cymosa",
               "taxonID": 5592046,
-              "discoveryYear": 1775
+              "discoveryYear": 1775,
+              "authorship": "J.R.Forst. & G.Forst."
             },
             {
               "name": "Cyrtandra glabra",
               "level": "species",
               "canonicalName": "Cyrtandra glabra",
               "taxonID": 10861919,
-              "discoveryYear": 1807
+              "discoveryYear": 1807,
+              "authorship": "Banks ex G.Gaertn."
             },
             {
               "name": "Cyrtandra macrophylla",
               "level": "species",
               "canonicalName": "Cyrtandra macrophylla",
               "taxonID": 5590159,
-              "discoveryYear": 1825
+              "discoveryYear": 1825,
+              "authorship": "Jack"
             },
             {
               "name": "Cyrtandra maculata",
               "level": "species",
               "canonicalName": "Cyrtandra maculata",
               "taxonID": 5590151,
-              "discoveryYear": 1825
+              "discoveryYear": 1825,
+              "authorship": "Jack"
             },
             {
               "name": "Cyrtandra aurea",
               "level": "species",
               "canonicalName": "Cyrtandra aurea",
               "taxonID": 5589237,
-              "discoveryYear": 1825
+              "discoveryYear": 1825,
+              "authorship": "Jack"
             },
             {
               "name": "Cyrtandra rubiginosa",
               "level": "species",
               "canonicalName": "Cyrtandra rubiginosa",
               "taxonID": 5588914,
-              "discoveryYear": 1825
+              "discoveryYear": 1825,
+              "authorship": "Jack"
             }
           ]
         },
@@ -945,14 +1047,16 @@
               "level": "species",
               "canonicalName": "Primulina tabacum",
               "taxonID": 3818401,
-              "discoveryYear": 1883
+              "discoveryYear": 1883,
+              "authorship": "Hance"
             },
             {
               "name": "Primulina renifolia",
               "level": "species",
               "canonicalName": "Primulina renifolia",
               "taxonID": 7350489,
-              "discoveryYear": 2011
+              "discoveryYear": 2011,
+              "authorship": "(D.Fang & D.H.Qin) J.M.Li & Yin Z.Wang"
             }
           ]
         },
@@ -965,14 +1069,16 @@
               "level": "species",
               "canonicalName": "Columnea scandens",
               "taxonID": 5415333,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Columnea hispida",
               "level": "species",
               "canonicalName": "Columnea hispida",
               "taxonID": 5589919,
-              "discoveryYear": 1788
+              "discoveryYear": 1788,
+              "authorship": "Sw."
             }
           ]
         },
@@ -985,14 +1091,16 @@
               "level": "species",
               "canonicalName": "Streptocarpus rexii",
               "taxonID": 5590514,
-              "discoveryYear": 1828
+              "discoveryYear": 1828,
+              "authorship": "(Bowie ex Hook.) Lindl."
             },
             {
               "name": "Streptocarpus thompsonii",
               "level": "species",
               "canonicalName": "Streptocarpus thompsonii",
               "taxonID": 5590338,
-              "discoveryYear": 1840
+              "discoveryYear": 1840,
+              "authorship": "R.Br."
             }
           ]
         },
@@ -1005,14 +1113,16 @@
               "level": "species",
               "canonicalName": "Aeschynanthus volubilis",
               "taxonID": 3824362,
-              "discoveryYear": 1823
+              "discoveryYear": 1823,
+              "authorship": "Jack"
             },
             {
               "name": "Aeschynanthus radicans",
               "level": "species",
               "canonicalName": "Aeschynanthus radicans",
               "taxonID": 3824774,
-              "discoveryYear": 1823
+              "discoveryYear": 1823,
+              "authorship": "Jack"
             }
           ]
         },
@@ -1025,14 +1135,16 @@
               "level": "species",
               "canonicalName": "Besleria lutea",
               "taxonID": 6365866,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Besleria elegans",
               "level": "species",
               "canonicalName": "Besleria elegans",
               "taxonID": 6069831,
-              "discoveryYear": 1818
+              "discoveryYear": 1818,
+              "authorship": "Kunth"
             }
           ]
         },
@@ -1045,14 +1157,16 @@
               "level": "species",
               "canonicalName": "Oreocharis primuloides",
               "taxonID": 7443165,
-              "discoveryYear": 1876
+              "discoveryYear": 1876,
+              "authorship": "Benth. & Hook.fil."
             },
             {
               "name": "Oreocharis benthamii",
               "level": "species",
               "canonicalName": "Oreocharis benthamii",
               "taxonID": 5588699,
-              "discoveryYear": 1883
+              "discoveryYear": 1883,
+              "authorship": "C.B.Clarke"
             }
           ]
         },
@@ -1065,14 +1179,16 @@
               "level": "species",
               "canonicalName": "Paraboea capitata",
               "taxonID": 5591601,
-              "discoveryYear": 1905
+              "discoveryYear": 1905,
+              "authorship": "Ridl."
             },
             {
               "name": "Paraboea laxa",
               "level": "species",
               "canonicalName": "Paraboea laxa",
               "taxonID": 5591460,
-              "discoveryYear": 1905
+              "discoveryYear": 1905,
+              "authorship": "(Ridl.) Ridl."
             }
           ]
         },
@@ -1085,14 +1201,16 @@
               "level": "species",
               "canonicalName": "Codonoboea ericiflora",
               "taxonID": 3823676,
-              "discoveryYear": 1915
+              "discoveryYear": 1915,
+              "authorship": "(Ridl.) Ridl."
             },
             {
               "name": "Codonoboea leucocodon",
               "level": "species",
               "canonicalName": "Codonoboea leucocodon",
               "taxonID": 3823665,
-              "discoveryYear": 1923
+              "discoveryYear": 1923,
+              "authorship": "(Ridl.) Ridl."
             }
           ]
         },
@@ -1105,14 +1223,16 @@
               "level": "species",
               "canonicalName": "Didymocarpus macrophyllus",
               "taxonID": 6070204,
-              "discoveryYear": 1819
+              "discoveryYear": 1819,
+              "authorship": "Wall. ex D.Don"
             },
             {
               "name": "Didymocarpus primulifolius",
               "level": "species",
               "canonicalName": "Didymocarpus primulifolius",
               "taxonID": 6069728,
-              "discoveryYear": 1825
+              "discoveryYear": 1825,
+              "authorship": "D.Don"
             }
           ]
         },
@@ -1125,14 +1245,16 @@
               "level": "species",
               "canonicalName": "Agalmyla tuberculata",
               "taxonID": 6365658,
-              "discoveryYear": 1852
+              "discoveryYear": 1852,
+              "authorship": "Hook.fil."
             },
             {
               "name": "Agalmyla angustifolia",
               "level": "species",
               "canonicalName": "Agalmyla angustifolia",
               "taxonID": 3824243,
-              "discoveryYear": 1858
+              "discoveryYear": 1858,
+              "authorship": "Miq."
             }
           ]
         },
@@ -1145,14 +1267,16 @@
               "level": "species",
               "canonicalName": "Sinningia helleri",
               "taxonID": 3817979,
-              "discoveryYear": 1825
+              "discoveryYear": 1825,
+              "authorship": "Nees"
             },
             {
               "name": "Sinningia guttata",
               "level": "species",
               "canonicalName": "Sinningia guttata",
               "taxonID": 3818039,
-              "discoveryYear": 1827
+              "discoveryYear": 1827,
+              "authorship": "Lindl."
             }
           ]
         }
@@ -1171,42 +1295,48 @@
               "level": "species",
               "canonicalName": "Pedicularis tristis",
               "taxonID": 3738249,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Pedicularis sceptrum-carolinum",
               "level": "species",
               "canonicalName": "Pedicularis sceptrum-carolinum",
               "taxonID": 7333052,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Pedicularis comosa",
               "level": "species",
               "canonicalName": "Pedicularis comosa",
               "taxonID": 8180842,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Pedicularis hirsuta",
               "level": "species",
               "canonicalName": "Pedicularis hirsuta",
               "taxonID": 3171707,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Pedicularis palustris",
               "level": "species",
               "canonicalName": "Pedicularis palustris",
               "taxonID": 3171734,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Pedicularis verticillata",
               "level": "species",
               "canonicalName": "Pedicularis verticillata",
               "taxonID": 3171697,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -1219,21 +1349,24 @@
               "level": "species",
               "canonicalName": "Euphrasia officinalis",
               "taxonID": 8106874,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Euphrasia tricuspidata",
               "level": "species",
               "canonicalName": "Euphrasia tricuspidata",
               "taxonID": 7332705,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Euphrasia cuneata",
               "level": "species",
               "canonicalName": "Euphrasia cuneata",
               "taxonID": 3739269,
-              "discoveryYear": 1786
+              "discoveryYear": 1786,
+              "authorship": "G.Forst."
             }
           ]
         },
@@ -1246,14 +1379,16 @@
               "level": "species",
               "canonicalName": "Castilleja fissifolia",
               "taxonID": 8130967,
-              "discoveryYear": 1781
+              "discoveryYear": 1781,
+              "authorship": "L.fil."
             },
             {
               "name": "Castilleja integrifolia",
               "level": "species",
               "canonicalName": "Castilleja integrifolia",
               "taxonID": 8260859,
-              "discoveryYear": 1782
+              "discoveryYear": 1782,
+              "authorship": "L.fil."
             }
           ]
         },
@@ -1266,14 +1401,16 @@
               "level": "species",
               "canonicalName": "Orobanche cernua",
               "taxonID": 3173260,
-              "discoveryYear": 1758
+              "discoveryYear": 1758,
+              "authorship": "Loefl."
             },
             {
               "name": "Orobanche crenata",
               "level": "species",
               "canonicalName": "Orobanche crenata",
               "taxonID": 3173273,
-              "discoveryYear": 1775
+              "discoveryYear": 1775,
+              "authorship": "Forssk."
             }
           ]
         },
@@ -1286,14 +1423,16 @@
               "level": "species",
               "canonicalName": "Buchnera americana",
               "taxonID": 5415032,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Buchnera capitata",
               "level": "species",
               "canonicalName": "Buchnera capitata",
               "taxonID": 8346300,
-              "discoveryYear": 1768
+              "discoveryYear": 1768,
+              "authorship": "Burm.fil."
             }
           ]
         },
@@ -1306,14 +1445,16 @@
               "level": "species",
               "canonicalName": "Agalinis filifolia",
               "taxonID": 3171278,
-              "discoveryYear": 1836
+              "discoveryYear": 1836,
+              "authorship": "(Nutt.) Raf."
             },
             {
               "name": "Agalinis obtusifolia",
               "level": "species",
               "canonicalName": "Agalinis obtusifolia",
               "taxonID": 3171290,
-              "discoveryYear": 1836
+              "discoveryYear": 1836,
+              "authorship": "Raf."
             }
           ]
         },
@@ -1326,14 +1467,16 @@
               "level": "species",
               "canonicalName": "Phelipanche arenaria",
               "taxonID": 3729246,
-              "discoveryYear": 1874
+              "discoveryYear": 1874,
+              "authorship": "(Borkh.) Pomel"
             },
             {
               "name": "Phelipanche aegyptiaca",
               "level": "species",
               "canonicalName": "Phelipanche aegyptiaca",
               "taxonID": 3729265,
-              "discoveryYear": 1874
+              "discoveryYear": 1874,
+              "authorship": "(Pers.) Pomel"
             }
           ]
         }
@@ -1352,35 +1495,40 @@
               "level": "species",
               "canonicalName": "Veronica aphylla",
               "taxonID": 3734339,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Veronica multifida",
               "level": "species",
               "canonicalName": "Veronica multifida",
               "taxonID": 7724247,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Veronica arvensis",
               "level": "species",
               "canonicalName": "Veronica arvensis",
               "taxonID": 3172048,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Veronica scutellata",
               "level": "species",
               "canonicalName": "Veronica scutellata",
               "taxonID": 3172072,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Veronica anagallis-aquatica",
               "level": "species",
               "canonicalName": "Veronica anagallis-aquatica",
               "taxonID": 3172086,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -1393,14 +1541,16 @@
               "level": "species",
               "canonicalName": "Penstemon laevigatus",
               "taxonID": 3171542,
-              "discoveryYear": 1789
+              "discoveryYear": 1789,
+              "authorship": "Aiton"
             },
             {
               "name": "Penstemon campanulatus",
               "level": "species",
               "canonicalName": "Penstemon campanulatus",
               "taxonID": 3171583,
-              "discoveryYear": 1800
+              "discoveryYear": 1800,
+              "authorship": "(Cav.) Willd."
             }
           ]
         },
@@ -1413,14 +1563,16 @@
               "level": "species",
               "canonicalName": "Plantago loeflingii",
               "taxonID": 7727786,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Plantago major",
               "level": "species",
               "canonicalName": "Plantago major",
               "taxonID": 3189767,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -1433,14 +1585,16 @@
               "level": "species",
               "canonicalName": "Linaria chalepensis",
               "taxonID": 7963687,
-              "discoveryYear": 1768
+              "discoveryYear": 1768,
+              "authorship": "(L.) Mill."
             },
             {
               "name": "Linaria pelisseriana",
               "level": "species",
               "canonicalName": "Linaria pelisseriana",
               "taxonID": 7886077,
-              "discoveryYear": 1768
+              "discoveryYear": 1768,
+              "authorship": "(L.) Mill."
             }
           ]
         },
@@ -1453,14 +1607,16 @@
               "level": "species",
               "canonicalName": "Callitriche palustris",
               "taxonID": 5372484,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Callitriche hermaphroditica",
               "level": "species",
               "canonicalName": "Callitriche hermaphroditica",
               "taxonID": 5372488,
-              "discoveryYear": 1755
+              "discoveryYear": 1755,
+              "authorship": "L."
             }
           ]
         },
@@ -1473,14 +1629,16 @@
               "level": "species",
               "canonicalName": "Bacopa aquatica",
               "taxonID": 3730754,
-              "discoveryYear": 1775
+              "discoveryYear": 1775,
+              "authorship": "Aubl."
             },
             {
               "name": "Bacopa salzmannii",
               "level": "species",
               "canonicalName": "Bacopa salzmannii",
               "taxonID": 8016050,
-              "discoveryYear": 1891
+              "discoveryYear": 1891,
+              "authorship": "(Benth.) Wettst."
             }
           ]
         },
@@ -1493,14 +1651,16 @@
               "level": "species",
               "canonicalName": "Antirrhinum majus",
               "taxonID": 3172001,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Antirrhinum molle",
               "level": "species",
               "canonicalName": "Antirrhinum molle",
               "taxonID": 7333137,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         }
@@ -1519,49 +1679,56 @@
               "level": "species",
               "canonicalName": "Verbascum phlomoides",
               "taxonID": 3171948,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Verbascum arcturus",
               "level": "species",
               "canonicalName": "Verbascum arcturus",
               "taxonID": 3741755,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Verbascum phoeniceum",
               "level": "species",
               "canonicalName": "Verbascum phoeniceum",
               "taxonID": 3171951,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Verbascum nigrum",
               "level": "species",
               "canonicalName": "Verbascum nigrum",
               "taxonID": 3171945,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Verbascum blattaria",
               "level": "species",
               "canonicalName": "Verbascum blattaria",
               "taxonID": 3171943,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Verbascum thapsus",
               "level": "species",
               "canonicalName": "Verbascum thapsus",
               "taxonID": 3171949,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Verbascum sinuatum",
               "level": "species",
               "canonicalName": "Verbascum sinuatum",
               "taxonID": 3171946,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -1574,14 +1741,16 @@
               "level": "species",
               "canonicalName": "Scrophularia marilandica",
               "taxonID": 3170885,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Scrophularia canina",
               "level": "species",
               "canonicalName": "Scrophularia canina",
               "taxonID": 3170873,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -1594,14 +1763,16 @@
               "level": "species",
               "canonicalName": "Eremophila alternifolia",
               "taxonID": 8293192,
-              "discoveryYear": 1810
+              "discoveryYear": 1810,
+              "authorship": "R.Br."
             },
             {
               "name": "Eremophila oppositifolia",
               "level": "species",
               "canonicalName": "Eremophila oppositifolia",
               "taxonID": 6034500,
-              "discoveryYear": 1810
+              "discoveryYear": 1810,
+              "authorship": "R.Br."
             }
           ]
         },
@@ -1614,14 +1785,16 @@
               "level": "species",
               "canonicalName": "Selago corymbosa",
               "taxonID": 3734776,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Selago fruticosa",
               "level": "species",
               "canonicalName": "Selago fruticosa",
               "taxonID": 5562394,
-              "discoveryYear": 1767
+              "discoveryYear": 1767,
+              "authorship": "L."
             }
           ]
         },
@@ -1634,14 +1807,16 @@
               "level": "species",
               "canonicalName": "Buddleja americana",
               "taxonID": 7288289,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Buddleja virgata",
               "level": "species",
               "canonicalName": "Buddleja virgata",
               "taxonID": 8076078,
-              "discoveryYear": 1782
+              "discoveryYear": 1782,
+              "authorship": "L.fil."
             }
           ]
         }
@@ -1660,14 +1835,16 @@
               "level": "species",
               "canonicalName": "Verbena bonariensis",
               "taxonID": 2925514,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Verbena hastata",
               "level": "species",
               "canonicalName": "Verbena hastata",
               "taxonID": 2925527,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -1680,14 +1857,16 @@
               "level": "species",
               "canonicalName": "Lippia americana",
               "taxonID": 7297612,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Lippia hirsuta",
               "level": "species",
               "canonicalName": "Lippia hirsuta",
               "taxonID": 7296949,
-              "discoveryYear": 1782
+              "discoveryYear": 1782,
+              "authorship": "L.f."
             }
           ]
         },
@@ -1700,14 +1879,16 @@
               "level": "species",
               "canonicalName": "Lantana trifolia",
               "taxonID": 2925321,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Lantana camara",
               "level": "species",
               "canonicalName": "Lantana camara",
               "taxonID": 2925303,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         }
@@ -1726,14 +1907,16 @@
               "level": "species",
               "canonicalName": "Adenocalymma bracteolatum",
               "taxonID": 4092892,
-              "discoveryYear": 1845
+              "discoveryYear": 1845,
+              "authorship": "DC."
             },
             {
               "name": "Adenocalymma inundatum",
               "level": "species",
               "canonicalName": "Adenocalymma inundatum",
               "taxonID": 7298432,
-              "discoveryYear": 1845
+              "discoveryYear": 1845,
+              "authorship": "Mart. ex DC."
             }
           ]
         },
@@ -1746,14 +1929,16 @@
               "level": "species",
               "canonicalName": "Bignonia aequinoctialis",
               "taxonID": 3172559,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Bignonia capreolata",
               "level": "species",
               "canonicalName": "Bignonia capreolata",
               "taxonID": 3172516,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -1766,14 +1951,16 @@
               "level": "species",
               "canonicalName": "Tabebuia haemantha",
               "taxonID": 3172542,
-              "discoveryYear": 1845
+              "discoveryYear": 1845,
+              "authorship": "(Bertol. ex Spreng.) DC."
             },
             {
               "name": "Tabebuia rosea",
               "level": "species",
               "canonicalName": "Tabebuia rosea",
               "taxonID": 3172537,
-              "discoveryYear": 1845
+              "discoveryYear": 1845,
+              "authorship": "(Bertol.) Bertero ex A.DC."
             }
           ]
         },
@@ -1786,14 +1973,16 @@
               "level": "species",
               "canonicalName": "Fridericia speciosa",
               "taxonID": 5668574,
-              "discoveryYear": 1827
+              "discoveryYear": 1827,
+              "authorship": "Mart."
             },
             {
               "name": "Fridericia grosourdyana",
               "level": "species",
               "canonicalName": "Fridericia grosourdyana",
               "taxonID": 8081044,
-              "discoveryYear": 2014
+              "discoveryYear": 2014,
+              "authorship": "(Baill.) L.G.Lohmann"
             }
           ]
         },
@@ -1806,14 +1995,16 @@
               "level": "species",
               "canonicalName": "Jacaranda caerulea",
               "taxonID": 4094693,
-              "discoveryYear": 1789
+              "discoveryYear": 1789,
+              "authorship": "(L.) Juss."
             },
             {
               "name": "Jacaranda obtusifolia",
               "level": "species",
               "canonicalName": "Jacaranda obtusifolia",
               "taxonID": 7298634,
-              "discoveryYear": 1806
+              "discoveryYear": 1806,
+              "authorship": "Humb. & Bonpl."
             }
           ]
         },
@@ -1826,14 +2017,16 @@
               "level": "species",
               "canonicalName": "Anemopaegma album",
               "taxonID": 7298658,
-              "discoveryYear": 1845
+              "discoveryYear": 1845,
+              "authorship": "Mart. ex DC."
             },
             {
               "name": "Anemopaegma velutinum",
               "level": "species",
               "canonicalName": "Anemopaegma velutinum",
               "taxonID": 7298429,
-              "discoveryYear": 1845
+              "discoveryYear": 1845,
+              "authorship": "Mart. ex DC."
             }
           ]
         },
@@ -1846,14 +2039,16 @@
               "level": "species",
               "canonicalName": "Amphilophium paniculatum",
               "taxonID": 3172589,
-              "discoveryYear": 1818
+              "discoveryYear": 1818,
+              "authorship": "(L.) Kunth"
             },
             {
               "name": "Amphilophium pannosum",
               "level": "species",
               "canonicalName": "Amphilophium pannosum",
               "taxonID": 4094288,
-              "discoveryYear": 1896
+              "discoveryYear": 1896,
+              "authorship": "(A.DC.) Bureau & K.Schum."
             }
           ]
         }
@@ -1872,14 +2067,16 @@
               "level": "species",
               "canonicalName": "Jasminum azoricum",
               "taxonID": 3172271,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Jasminum officinale",
               "level": "species",
               "canonicalName": "Jasminum officinale",
               "taxonID": 3172261,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -1892,14 +2089,16 @@
               "level": "species",
               "canonicalName": "Chionanthus virginicus",
               "taxonID": 3172303,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Chionanthus zeylanicus",
               "level": "species",
               "canonicalName": "Chionanthus zeylanicus",
               "taxonID": 7326103,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -1912,14 +2111,16 @@
               "level": "species",
               "canonicalName": "Fraxinus ornus",
               "taxonID": 3172347,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Fraxinus americana",
               "level": "species",
               "canonicalName": "Fraxinus americana",
               "taxonID": 3172327,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         }
@@ -1938,21 +2139,24 @@
               "level": "species",
               "canonicalName": "Utricularia minor",
               "taxonID": 3172414,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Utricularia bifida",
               "level": "species",
               "canonicalName": "Utricularia bifida",
               "taxonID": 3172406,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Utricularia vulgaris",
               "level": "species",
               "canonicalName": "Utricularia vulgaris",
               "taxonID": 3172427,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -1965,14 +2169,16 @@
               "level": "species",
               "canonicalName": "Pinguicula vulgaris",
               "taxonID": 5415065,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             },
             {
               "name": "Pinguicula lusitanica",
               "level": "species",
               "canonicalName": "Pinguicula lusitanica",
               "taxonID": 5667916,
-              "discoveryYear": 1753
+              "discoveryYear": 1753,
+              "authorship": "L."
             }
           ]
         },
@@ -1985,14 +2191,16 @@
               "level": "species",
               "canonicalName": "Genlisea violacea",
               "taxonID": 4088196,
-              "discoveryYear": 1833
+              "discoveryYear": 1833,
+              "authorship": "A.St.-Hil."
             },
             {
               "name": "Genlisea aurea",
               "level": "species",
               "canonicalName": "Genlisea aurea",
               "taxonID": 4087388,
-              "discoveryYear": 1833
+              "discoveryYear": 1833,
+              "authorship": "A.St.-Hil."
             }
           ]
         }
