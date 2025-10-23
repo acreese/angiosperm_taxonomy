@@ -4,8 +4,8 @@ const height = 1200;
 const radius = Math.min(width, height) / 2 - 100;
 
 // Hue range for gradient around circle
-const HUE_START = 100;  // Lime-green
-const HUE_END = 260;    // Purple
+const HUE_START = 80;  // Lime-green
+const HUE_END = 300;    // Purple
 const BASE_SATURATION = 50;
 
 // Map to store family hue assignments
