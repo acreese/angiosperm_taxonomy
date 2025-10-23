@@ -165,11 +165,56 @@ d3.json('lamiales_hierarchy.json').then(data => {
             }
         })
         .on('mouseover', function(event, d) {
-            // Highlight node
-            d3.select(this)
+            // Get all descendants of hovered node
+            const descendants = d.descendants();
+            const descendantSet = new Set(descendants);
+
+            // Enlarge hovered node and descendants
+            nodes.selectAll('circle')
                 .transition()
                 .duration(200)
-                .attr('r', parseFloat(d3.select(this).attr('r')) * 1.5);
+                .attr('r', function(node) {
+                    // Get original radius
+                    let originalR = 3;
+                    if (node.depth === 0) originalR = 24;
+                    else if (node.depth === 1) originalR = 9;
+                    else if (node.depth === 2) originalR = 6;
+
+                    // Enlarge if it's the hovered node or a descendant
+                    if (descendantSet.has(node)) {
+                        return originalR * 1.8;
+                    }
+                    return originalR;
+                });
+
+            // Dim/brighten nodes based on relationship to hovered node
+            nodes.transition()
+                .duration(200)
+                .style('opacity', node => {
+                    if (descendantSet.has(node)) return 1; // Full brightness for subtree
+                    if (d.ancestors().includes(node)) return 0.7; // Ancestors slightly visible
+                    return 0.2; // Dim unrelated nodes
+                });
+
+            // Highlight links in the subtree
+            links.transition()
+                .duration(200)
+                .style('opacity', link => {
+                    if (descendantSet.has(link.target) || descendantSet.has(link.source)) {
+                        return 1; // Full brightness for subtree links
+                    }
+                    if (d.ancestors().includes(link.target) || d.ancestors().includes(link.source)) {
+                        return 0.5; // Ancestors somewhat visible
+                    }
+                    return 0.1; // Dim unrelated links
+                })
+                .style('stroke-width', link => {
+                    // Thicken links in the focused subtree
+                    if (descendantSet.has(link.target)) {
+                        return '2.5px';
+                    }
+                    return '1.5px';
+                });
 
             // Show tooltip
             tooltip.classed('visible', true)
@@ -182,16 +227,53 @@ d3.json('lamiales_hierarchy.json').then(data => {
                 .style('top', (event.pageY - 10) + 'px');
         })
         .on('mouseout', function(event, d) {
-            // Reset node size
-            d3.select(this)
+            // Reset all node sizes to original
+            nodes.selectAll('circle')
                 .transition()
                 .duration(200)
-                .attr('r', d => {
-                    if (d.depth === 0) return 24;
-                    if (d.depth === 1) return 9;
-                    if (d.depth === 2) return 6;
+                .attr('r', node => {
+                    if (node.depth === 0) return 24;
+                    if (node.depth === 1) return 9;
+                    if (node.depth === 2) return 6;
                     return 3;
                 });
+
+            // Reset node opacity (respect current zoom state if any)
+            if (currentFocus) {
+                // If zoomed, maintain the zoom opacity state
+                const focusDescendants = currentFocus.descendants();
+                const focusSet = new Set(focusDescendants);
+
+                nodes.transition()
+                    .duration(200)
+                    .style('opacity', node => {
+                        if (node === currentFocus) return 1;
+                        if (node.ancestors().includes(currentFocus)) return 0.3;
+                        if (currentFocus.ancestors().includes(node)) return 1;
+                        if (focusSet.has(node)) return 1;
+                        return 0.15;
+                    });
+
+                links.transition()
+                    .duration(200)
+                    .style('opacity', link => {
+                        if (link.source === currentFocus || link.target === currentFocus) return 1;
+                        if (currentFocus.ancestors().includes(link.source) || currentFocus.ancestors().includes(link.target)) return 0.6;
+                        if (focusSet.has(link.target)) return 1;
+                        return 0.1;
+                    })
+                    .style('stroke-width', '1.5px');
+            } else {
+                // No zoom, restore full visibility
+                nodes.transition()
+                    .duration(200)
+                    .style('opacity', 1);
+
+                links.transition()
+                    .duration(200)
+                    .style('opacity', 1)
+                    .style('stroke-width', '1.5px');
+            }
 
             // Hide tooltip
             tooltip.classed('visible', false);
