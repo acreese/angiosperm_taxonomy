@@ -211,6 +211,14 @@ h1 {
     margin-bottom: 5px;
 }
 
+.tooltip .taxon-metadata {
+    font-size: 10px;
+    font-weight: 300;
+    color: #ccc;
+    margin-bottom: 3px;
+    font-style: italic;
+}
+
 .tooltip .taxon-level {
     font-size: 10px;
     color: #aaa;

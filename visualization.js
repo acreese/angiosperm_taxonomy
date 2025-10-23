@@ -266,6 +266,9 @@ d3.json('lamiales_hierarchy_proportional.json').then(data => {
             tooltip.classed('visible', true)
                 .html(`
                     <div class="taxon-name">${d.data.name}</div>
+                    ${d.data.level === 'species' && (d.data.discoveryYear || d.data.authorship) ?
+                        `<div class="taxon-metadata">${d.data.discoveryYear || ''} ${d.data.discoveryYear && d.data.authorship ? '|' : ''} ${d.data.authorship || ''}</div>`
+                        : ''}
                     <div class="taxon-level">Level: ${d.data.level}</div>
                     ${d.children ? `<div>Children: ${d.children.length}</div>` : ''}
                 `)
