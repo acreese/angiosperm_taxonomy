@@ -3,19 +3,13 @@ const width = 1200;
 const height = 1200;
 const radius = Math.min(width, height) / 2 - 100;
 
-// Base hues for each family (10 distinct colors)
-const familyHues = [
-    { h: 120, s: 50, name: 'green' },      // Green
-    { h: 200, s: 55, name: 'blue' },       // Blue
-    { h: 280, s: 45, name: 'purple' },     // Purple
-    { h: 180, s: 50, name: 'teal' },       // Teal
-    { h: 30, s: 60, name: 'orange' },      // Orange
-    { h: 160, s: 50, name: 'jade' },       // Jade
-    { h: 260, s: 50, name: 'violet' },     // Violet
-    { h: 340, s: 45, name: 'magenta' },    // Magenta
-    { h: 60, s: 55, name: 'lime' },        // Lime
-    { h: 220, s: 50, name: 'indigo' }      // Indigo
-];
+// Hue range for gradient around circle
+const HUE_START = 100;  // Lime-green
+const HUE_END = 260;    // Purple
+const BASE_SATURATION = 50;
+
+// Map to store family hue assignments
+let familyHueMap = new Map();
 
 // Function to get color for a node based on its family and depth
 function getNodeColor(node) {
@@ -27,33 +21,39 @@ function getNodeColor(node) {
 
     // If this is order level, use neutral dark green
     if (node.depth === 0) {
-        return 'hsl(120, 40%, 20%)'; // Dark green for Lamiales
+        return 'hsl(150, 40%, 20%)'; // Dark green for Lamiales
     }
 
-    // Get family index (use node itself if it's a family, or find parent family)
-    let familyIndex = 0;
+    // Get or assign hue for this family
+    let hue;
     if (familyNode && familyNode.depth === 1) {
-        // Find index of this family among all families
-        const allFamilies = familyNode.parent.children;
-        familyIndex = allFamilies.indexOf(familyNode) % familyHues.length;
+        if (!familyHueMap.has(familyNode)) {
+            // Assign hue based on family's angular position
+            const angle = familyNode.x; // radians, 0 to 2π
+            const normalizedAngle = angle / (2 * Math.PI); // 0 to 1
+            hue = HUE_START + (normalizedAngle * (HUE_END - HUE_START));
+            familyHueMap.set(familyNode, hue);
+        } else {
+            hue = familyHueMap.get(familyNode);
+        }
+    } else {
+        hue = 150; // Default green if something goes wrong
     }
-
-    const baseHue = familyHues[familyIndex];
 
     // Apply dark-to-light gradient based on depth
     let lightness, saturation;
     if (node.depth === 1) { // Family
         lightness = 30;
-        saturation = baseHue.s;
+        saturation = BASE_SATURATION;
     } else if (node.depth === 2) { // Genus
         lightness = 50;
-        saturation = baseHue.s - 5;
+        saturation = BASE_SATURATION - 5;
     } else { // Species
         lightness = 70;
-        saturation = baseHue.s - 10;
+        saturation = BASE_SATURATION - 10;
     }
 
-    return `hsl(${baseHue.h}, ${saturation}%, ${lightness}%)`;
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 }
 
 // Create SVG container
