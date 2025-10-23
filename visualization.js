@@ -354,7 +354,7 @@ function loadVisualization(filename) {
             return d.x < Math.PI === !d.children ? 'start' : 'end';
         })
         .attr('transform', d => {
-            if (d.depth === 0) return 'rotate(-154)'; // rotate root label 90 degrees
+            if (d.depth === 0) return 'rotate(-157)'; // rotate root label 90 degrees
             return d.x >= Math.PI ? 'rotate(180)' : null;
         })
         .text(d => d.data.name)
