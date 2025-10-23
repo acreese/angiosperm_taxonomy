@@ -3,12 +3,12 @@ const width = 1200;
 const height = 1200;
 const radius = Math.min(width, height) / 2 - 100;
 
-// Color scale for different taxonomic levels
+// Color scale for different taxonomic levels (dark to light gradient)
 const colorScale = {
-    order: '#2c5f2d',
-    family: '#4a7c59',
-    genus: '#69b578',
-    species: '#97d492'
+    order: '#1a4d1b',      // Deep forest green (darkest, most saturated)
+    family: '#2d7a30',     // Medium forest green
+    genus: '#5ba85e',      // Light green
+    species: '#a8d5aa'     // Pale green (lightest)
 };
 
 // Create SVG container

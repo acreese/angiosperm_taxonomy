@@ -27,7 +27,7 @@ header {
 
 h1 {
     font-size: 2.5rem;
-    color: #2c5f2d;
+    color: #1a4d1b;  /* Match deepest green */
     margin-bottom: 10px;
 }
 
@@ -60,8 +60,8 @@ h1 {
 .panel h3 {
     margin: 0 0 12px 0;
     font-size: 1rem;
-    color: #2c5f2d;
-    border-bottom: 2px solid #2c5f2d;
+    color: #1a4d1b;  /* Match deepest green */
+    border-bottom: 2px solid #1a4d1b;
     padding-bottom: 8px;
 }
 
@@ -80,19 +80,19 @@ h1 {
 }
 
 .legend-circle-order {
-    fill: #2c5f2d;
+    fill: #1a4d1b;  /* Deep forest green */
 }
 
 .legend-circle-family {
-    fill: #4a7c59;
+    fill: #2d7a30;  /* Medium forest green */
 }
 
 .legend-circle-genus {
-    fill: #69b578;
+    fill: #5ba85e;  /* Light green */
 }
 
 .legend-circle-species {
-    fill: #97d492;
+    fill: #a8d5aa;  /* Pale green */
 }
 
 /* Stats styles */
@@ -114,7 +114,7 @@ h1 {
 
 .stat-value {
     font-weight: bold;
-    color: #2c5f2d;
+    color: #1a4d1b;  /* Match deepest green */
 }
 
 /* Controls styles */
@@ -125,7 +125,7 @@ h1 {
 }
 
 .reset-button {
-    background: #2c5f2d;
+    background: #1a4d1b;  /* Deep forest green */
     color: white;
     border: none;
     border-radius: 4px;
@@ -136,11 +136,11 @@ h1 {
 }
 
 .reset-button:hover {
-    background: #4a7c59;
+    background: #2d7a30;  /* Medium forest green on hover */
 }
 
 .reset-button:active {
-    background: #1f4521;
+    background: #0f3310;  /* Even darker on click */
 }
 
 .hint {
