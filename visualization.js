@@ -239,6 +239,15 @@ function loadVisualization(filename) {
                     return originalR;
                 });
 
+            // Bold text for hovered subtree
+            nodes.selectAll('text')
+                .transition()
+                .duration(200)
+                .style('font-weight', node => {
+                    if (descendantSet.has(node)) return 'bold';
+                    return node.depth === 0 ? 'bold' : 'normal'; // Root always bold
+                });
+
             // Dim/brighten nodes based on relationship to hovered node
             nodes.transition()
                 .duration(200)
@@ -298,6 +307,12 @@ function loadVisualization(filename) {
                     if (node.depth === 2) return 6;
                     return 3;
                 });
+
+            // Reset text font-weight
+            nodes.selectAll('text')
+                .transition()
+                .duration(200)
+                .style('font-weight', node => node.depth === 0 ? 'bold' : 'normal');
 
             // Reset node opacity (respect current zoom state if any)
             if (currentFocus) {
