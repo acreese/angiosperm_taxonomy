@@ -12,12 +12,16 @@ const colorScale = {
 };
 
 // Create SVG container
-const svg = d3.select('#visualization')
+const svgElement = d3.select('#visualization')
     .append('svg')
     .attr('width', width)
-    .attr('height', height)
-    .append('g')
+    .attr('height', height);
+
+const svg = svgElement.append('g')
     .attr('transform', `translate(${width / 2},${height / 2})`);
+
+// Track current focus node
+let currentFocus = null;
 
 // Create cluster layout (better for radial distribution)
 const tree = d3.cluster()
@@ -67,6 +71,78 @@ d3.json('lamiales_hierarchy.json').then(data => {
             translate(${d.y},0)
         `);
 
+    // Zoom function
+    function zoomToNode(d) {
+        currentFocus = d;
+
+        // Calculate transform
+        const angle = d.x;
+        const radius = d.y;
+
+        // Calculate center position in Cartesian coordinates
+        const x = radius * Math.sin(angle);
+        const y = -radius * Math.cos(angle);
+
+        // Zoom scale - zoom more for nodes further out
+        const scale = d.depth === 0 ? 1 : d.depth === 1 ? 2.5 : 3.5;
+
+        // Transform to center the clicked node
+        svg.transition()
+            .duration(750)
+            .attr('transform', `translate(${width / 2},${height / 2}) scale(${scale}) translate(${-x},${-y})`);
+
+        // Update node visibility/opacity based on focus
+        nodes.transition()
+            .duration(750)
+            .style('opacity', node => {
+                // Show the focused node and its descendants
+                if (node === d) return 1;
+                if (node.ancestors().includes(d)) return 0.3; // ancestors dimmed
+                if (d.ancestors().includes(node)) return 1; // show path to root
+
+                // Check if node is a descendant of focused node
+                let current = node;
+                while (current.parent) {
+                    if (current.parent === d) return 1;
+                    current = current.parent;
+                }
+                return 0.15; // dim unrelated nodes
+            });
+
+        links.transition()
+            .duration(750)
+            .style('opacity', link => {
+                // Show links in the focused subtree
+                if (link.source === d || link.target === d) return 1;
+                if (d.ancestors().includes(link.source) || d.ancestors().includes(link.target)) return 0.6;
+
+                // Check if link is within focused subtree
+                let current = link.target;
+                while (current.parent) {
+                    if (current.parent === d) return 1;
+                    current = current.parent;
+                }
+                return 0.1;
+            });
+    }
+
+    // Reset zoom function
+    function resetZoom() {
+        currentFocus = null;
+
+        svg.transition()
+            .duration(750)
+            .attr('transform', `translate(${width / 2},${height / 2})`);
+
+        nodes.transition()
+            .duration(750)
+            .style('opacity', 1);
+
+        links.transition()
+            .duration(750)
+            .style('opacity', 1);
+    }
+
     // Add circles for nodes
     nodes.append('circle')
         .attr('r', d => {
@@ -77,6 +153,17 @@ d3.json('lamiales_hierarchy.json').then(data => {
             return 3; // species (unchanged)
         })
         .style('fill', d => colorScale[d.data.level] || '#97d492')
+        .style('cursor', d => d.children ? 'pointer' : 'default') // pointer for clickable nodes
+        .on('click', function(event, d) {
+            event.stopPropagation();
+            if (d.children) { // Only allow zoom on nodes with children
+                if (currentFocus === d) {
+                    resetZoom(); // Click again to reset
+                } else {
+                    zoomToNode(d);
+                }
+            }
+        })
         .on('mouseover', function(event, d) {
             // Highlight node
             d3.select(this)
@@ -149,8 +236,19 @@ d3.json('lamiales_hierarchy.json').then(data => {
     d3.select('#stat-genera').text(genera);
     d3.select('#stat-species').text(species);
 
+    // Click SVG background to reset zoom
+    svgElement.on('click', function(event) {
+        if (event.target === this || event.target.tagName === 'svg') {
+            resetZoom();
+        }
+    });
+
+    // Expose reset function globally for button
+    window.resetVisualizationZoom = resetZoom;
+
     console.log(`Visualization loaded: ${allNodes.length} total nodes`);
     console.log(`Families: ${families}, Genera: ${genera}, Species: ${species}`);
+    console.log(`Click on family or genus nodes to zoom in. Click again or click background to reset.`);
 }).catch(error => {
     console.error('Error loading data:', error);
     d3.select('#visualization')
