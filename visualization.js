@@ -70,11 +70,11 @@ d3.json('lamiales_hierarchy.json').then(data => {
     // Add circles for nodes
     nodes.append('circle')
         .attr('r', d => {
-            // Size based on depth/level
-            if (d.depth === 0) return 8; // order
-            if (d.depth === 1) return 6; // family
-            if (d.depth === 2) return 4; // genus
-            return 3; // species
+            // Size based on depth/level (3x larger for non-species)
+            if (d.depth === 0) return 24; // order (was 8)
+            if (d.depth === 1) return 18; // family (was 6)
+            if (d.depth === 2) return 12; // genus (was 4)
+            return 3; // species (unchanged)
         })
         .style('fill', d => colorScale[d.data.level] || '#97d492')
         .on('mouseover', function(event, d) {
@@ -100,9 +100,9 @@ d3.json('lamiales_hierarchy.json').then(data => {
                 .transition()
                 .duration(200)
                 .attr('r', d => {
-                    if (d.depth === 0) return 8;
-                    if (d.depth === 1) return 6;
-                    if (d.depth === 2) return 4;
+                    if (d.depth === 0) return 24;
+                    if (d.depth === 1) return 18;
+                    if (d.depth === 2) return 12;
                     return 3;
                 });
 
@@ -121,15 +121,18 @@ d3.json('lamiales_hierarchy.json').then(data => {
         })
         .attr('x', d => {
             // Horizontal offset from node - larger for root and families
-            if (d.depth === 0) return 15; // root node - more space
-            if (d.depth === 1) return d.x < Math.PI === !d.children ? 12 : -12; // families - more space
-            return d.x < Math.PI === !d.children ? 6 : -6; // genera
+            if (d.depth === 0) return 30; // root node - more space for larger node
+            if (d.depth === 1) return d.x < Math.PI === !d.children ? 24 : -24; // families - more space
+            return d.x < Math.PI === !d.children ? 18 : -18; // genera - more space
         })
         .attr('text-anchor', d => {
-            if (d.depth === 0) return 'start'; // root always starts from right
+            if (d.depth === 0) return 'middle'; // center the rotated text
             return d.x < Math.PI === !d.children ? 'start' : 'end';
         })
-        .attr('transform', d => d.x >= Math.PI ? 'rotate(180)' : null)
+        .attr('transform', d => {
+            if (d.depth === 0) return 'rotate(-90)'; // rotate root label 90 degrees
+            return d.x >= Math.PI ? 'rotate(180)' : null;
+        })
         .text(d => d.data.name)
         .style('font-size', d => d.depth === 0 ? '14px' : d.depth === 1 ? '11px' : '9px')
         .style('font-weight', d => d.depth === 0 ? 'bold' : 'normal');
