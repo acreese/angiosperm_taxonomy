@@ -1,14 +1,17 @@
 {
   "name": "Lamiales",
   "level": "order",
+  "actualChildCount": 10,
   "children": [
     {
       "name": "Lamiaceae",
       "level": "family",
+      "actualChildCount": 259,
       "children": [
         {
           "name": "Salvia",
           "level": "genus",
+          "actualChildCount": 1168,
           "children": [
             {
               "name": "Salvia viridis",
@@ -103,6 +106,7 @@
         {
           "name": "Scutellaria",
           "level": "genus",
+          "actualChildCount": 516,
           "children": [
             {
               "name": "Scutellaria lateriflora",
@@ -149,6 +153,7 @@
         {
           "name": "Thymus",
           "level": "genus",
+          "actualChildCount": 432,
           "children": [
             {
               "name": "Thymus pulegioides",
@@ -187,6 +192,7 @@
         {
           "name": "Stachys",
           "level": "genus",
+          "actualChildCount": 416,
           "children": [
             {
               "name": "Stachys cretica",
@@ -225,6 +231,7 @@
         {
           "name": "Teucrium",
           "level": "genus",
+          "actualChildCount": 393,
           "children": [
             {
               "name": "Teucrium pyrenaicum",
@@ -255,6 +262,7 @@
         {
           "name": "Nepeta",
           "level": "genus",
+          "actualChildCount": 335,
           "children": [
             {
               "name": "Nepeta multifida",
@@ -285,6 +293,7 @@
         {
           "name": "Coleus",
           "level": "genus",
+          "actualChildCount": 306,
           "children": [
             {
               "name": "Coleus amboinicus",
@@ -315,6 +324,7 @@
         {
           "name": "Clerodendrum",
           "level": "genus",
+          "actualChildCount": 294,
           "children": [
             {
               "name": "Clerodendrum infortunatum",
@@ -337,6 +347,7 @@
         {
           "name": "Vitex",
           "level": "genus",
+          "actualChildCount": 249,
           "children": [
             {
               "name": "Vitex negundo",
@@ -359,6 +370,7 @@
         {
           "name": "Sideritis",
           "level": "genus",
+          "actualChildCount": 213,
           "children": [
             {
               "name": "Sideritis perfoliata",
@@ -381,6 +393,7 @@
         {
           "name": "Clinopodium",
           "level": "genus",
+          "actualChildCount": 207,
           "children": [
             {
               "name": "Clinopodium vulgare",
@@ -403,6 +416,7 @@
         {
           "name": "Hyptis",
           "level": "genus",
+          "actualChildCount": 195,
           "children": [
             {
               "name": "Hyptis capitata",
@@ -425,6 +439,7 @@
         {
           "name": "Callicarpa",
           "level": "genus",
+          "actualChildCount": 188,
           "children": [
             {
               "name": "Callicarpa americana",
@@ -447,6 +462,7 @@
         {
           "name": "Mentha",
           "level": "genus",
+          "actualChildCount": 187,
           "children": [
             {
               "name": "Mentha arvensis",
@@ -469,6 +485,7 @@
         {
           "name": "Phlomoides",
           "level": "genus",
+          "actualChildCount": 177,
           "children": [
             {
               "name": "Phlomoides tuberosa",
@@ -491,6 +508,7 @@
         {
           "name": "Aegiphila",
           "level": "genus",
+          "actualChildCount": 149,
           "children": [
             {
               "name": "Aegiphila martinicensis",
@@ -513,6 +531,7 @@
         {
           "name": "Premna",
           "level": "genus",
+          "actualChildCount": 144,
           "children": [
             {
               "name": "Premna serratifolia",
@@ -535,6 +554,7 @@
         {
           "name": "Phlomis",
           "level": "genus",
+          "actualChildCount": 142,
           "children": [
             {
               "name": "Phlomis herba-venti",
@@ -559,10 +579,12 @@
     {
       "name": "Acanthaceae",
       "level": "family",
+      "actualChildCount": 217,
       "children": [
         {
           "name": "Justicia",
           "level": "genus",
+          "actualChildCount": 994,
           "children": [
             {
               "name": "Justicia adhatoda",
@@ -641,6 +663,7 @@
         {
           "name": "Strobilanthes",
           "level": "genus",
+          "actualChildCount": 472,
           "children": [
             {
               "name": "Strobilanthes cernua",
@@ -679,6 +702,7 @@
         {
           "name": "Ruellia",
           "level": "genus",
+          "actualChildCount": 411,
           "children": [
             {
               "name": "Ruellia tuberosa",
@@ -709,6 +733,7 @@
         {
           "name": "Barleria",
           "level": "genus",
+          "actualChildCount": 303,
           "children": [
             {
               "name": "Barleria cristata",
@@ -731,6 +756,7 @@
         {
           "name": "Dicliptera",
           "level": "genus",
+          "actualChildCount": 231,
           "children": [
             {
               "name": "Dicliptera resupinata",
@@ -753,6 +779,7 @@
         {
           "name": "Aphelandra",
           "level": "genus",
+          "actualChildCount": 219,
           "children": [
             {
               "name": "Aphelandra pulcherrima",
@@ -775,6 +802,7 @@
         {
           "name": "Lepidagathis",
           "level": "genus",
+          "actualChildCount": 162,
           "children": [
             {
               "name": "Lepidagathis cristata",
@@ -797,6 +825,7 @@
         {
           "name": "Staurogyne",
           "level": "genus",
+          "actualChildCount": 155,
           "children": [
             {
               "name": "Staurogyne argentea",
@@ -819,6 +848,7 @@
         {
           "name": "Thunbergia",
           "level": "genus",
+          "actualChildCount": 153,
           "children": [
             {
               "name": "Thunbergia capensis",
@@ -841,6 +871,7 @@
         {
           "name": "Hypoestes",
           "level": "genus",
+          "actualChildCount": 147,
           "children": [
             {
               "name": "Hypoestes purpurea",
@@ -863,6 +894,7 @@
         {
           "name": "Pseuderanthemum",
           "level": "genus",
+          "actualChildCount": 136,
           "children": [
             {
               "name": "Pseuderanthemum alatum",
@@ -885,6 +917,7 @@
         {
           "name": "Blepharis",
           "level": "genus",
+          "actualChildCount": 135,
           "children": [
             {
               "name": "Blepharis linariifolia",
@@ -907,6 +940,7 @@
         {
           "name": "Stenostephanus",
           "level": "genus",
+          "actualChildCount": 99,
           "children": [
             {
               "name": "Stenostephanus lasiostachyus",
@@ -929,6 +963,7 @@
         {
           "name": "Dyschoriste",
           "level": "genus",
+          "actualChildCount": 98,
           "children": [
             {
               "name": "Dyschoriste radicans",
@@ -951,6 +986,7 @@
         {
           "name": "Mendoncia",
           "level": "genus",
+          "actualChildCount": 89,
           "children": [
             {
               "name": "Mendoncia coccinea",
@@ -975,10 +1011,12 @@
     {
       "name": "Gesneriaceae",
       "level": "family",
+      "actualChildCount": 172,
       "children": [
         {
           "name": "Cyrtandra",
           "level": "genus",
+          "actualChildCount": 738,
           "children": [
             {
               "name": "Cyrtandra biflora",
@@ -1041,6 +1079,7 @@
         {
           "name": "Primulina",
           "level": "genus",
+          "actualChildCount": 234,
           "children": [
             {
               "name": "Primulina tabacum",
@@ -1063,6 +1102,7 @@
         {
           "name": "Columnea",
           "level": "genus",
+          "actualChildCount": 224,
           "children": [
             {
               "name": "Columnea scandens",
@@ -1085,6 +1125,7 @@
         {
           "name": "Streptocarpus",
           "level": "genus",
+          "actualChildCount": 209,
           "children": [
             {
               "name": "Streptocarpus rexii",
@@ -1107,6 +1148,7 @@
         {
           "name": "Aeschynanthus",
           "level": "genus",
+          "actualChildCount": 191,
           "children": [
             {
               "name": "Aeschynanthus volubilis",
@@ -1129,6 +1171,7 @@
         {
           "name": "Besleria",
           "level": "genus",
+          "actualChildCount": 171,
           "children": [
             {
               "name": "Besleria lutea",
@@ -1151,6 +1194,7 @@
         {
           "name": "Oreocharis",
           "level": "genus",
+          "actualChildCount": 157,
           "children": [
             {
               "name": "Oreocharis primuloides",
@@ -1173,6 +1217,7 @@
         {
           "name": "Paraboea",
           "level": "genus",
+          "actualChildCount": 151,
           "children": [
             {
               "name": "Paraboea capitata",
@@ -1195,6 +1240,7 @@
         {
           "name": "Codonoboea",
           "level": "genus",
+          "actualChildCount": 130,
           "children": [
             {
               "name": "Codonoboea ericiflora",
@@ -1217,6 +1263,7 @@
         {
           "name": "Didymocarpus",
           "level": "genus",
+          "actualChildCount": 115,
           "children": [
             {
               "name": "Didymocarpus macrophyllus",
@@ -1239,6 +1286,7 @@
         {
           "name": "Agalmyla",
           "level": "genus",
+          "actualChildCount": 97,
           "children": [
             {
               "name": "Agalmyla tuberculata",
@@ -1261,6 +1309,7 @@
         {
           "name": "Sinningia",
           "level": "genus",
+          "actualChildCount": 94,
           "children": [
             {
               "name": "Sinningia helleri",
@@ -1285,10 +1334,12 @@
     {
       "name": "Orobanchaceae",
       "level": "family",
+      "actualChildCount": 107,
       "children": [
         {
           "name": "Pedicularis",
           "level": "genus",
+          "actualChildCount": 733,
           "children": [
             {
               "name": "Pedicularis tristis",
@@ -1343,6 +1394,7 @@
         {
           "name": "Euphrasia",
           "level": "genus",
+          "actualChildCount": 328,
           "children": [
             {
               "name": "Euphrasia officinalis",
@@ -1373,6 +1425,7 @@
         {
           "name": "Castilleja",
           "level": "genus",
+          "actualChildCount": 227,
           "children": [
             {
               "name": "Castilleja fissifolia",
@@ -1395,6 +1448,7 @@
         {
           "name": "Orobanche",
           "level": "genus",
+          "actualChildCount": 147,
           "children": [
             {
               "name": "Orobanche cernua",
@@ -1417,6 +1471,7 @@
         {
           "name": "Buchnera",
           "level": "genus",
+          "actualChildCount": 137,
           "children": [
             {
               "name": "Buchnera americana",
@@ -1439,6 +1494,7 @@
         {
           "name": "Agalinis",
           "level": "genus",
+          "actualChildCount": 72,
           "children": [
             {
               "name": "Agalinis filifolia",
@@ -1461,6 +1517,7 @@
         {
           "name": "Phelipanche",
           "level": "genus",
+          "actualChildCount": 66,
           "children": [
             {
               "name": "Phelipanche arenaria",
@@ -1485,10 +1542,12 @@
     {
       "name": "Plantaginaceae",
       "level": "family",
+      "actualChildCount": 104,
       "children": [
         {
           "name": "Veronica",
           "level": "genus",
+          "actualChildCount": 555,
           "children": [
             {
               "name": "Veronica aphylla",
@@ -1535,6 +1594,7 @@
         {
           "name": "Penstemon",
           "level": "genus",
+          "actualChildCount": 304,
           "children": [
             {
               "name": "Penstemon laevigatus",
@@ -1557,6 +1617,7 @@
         {
           "name": "Plantago",
           "level": "genus",
+          "actualChildCount": 266,
           "children": [
             {
               "name": "Plantago loeflingii",
@@ -1579,6 +1640,7 @@
         {
           "name": "Linaria",
           "level": "genus",
+          "actualChildCount": 219,
           "children": [
             {
               "name": "Linaria chalepensis",
@@ -1601,6 +1663,7 @@
         {
           "name": "Callitriche",
           "level": "genus",
+          "actualChildCount": 84,
           "children": [
             {
               "name": "Callitriche palustris",
@@ -1623,6 +1686,7 @@
         {
           "name": "Bacopa",
           "level": "genus",
+          "actualChildCount": 64,
           "children": [
             {
               "name": "Bacopa aquatica",
@@ -1645,6 +1709,7 @@
         {
           "name": "Antirrhinum",
           "level": "genus",
+          "actualChildCount": 58,
           "children": [
             {
               "name": "Antirrhinum majus",
@@ -1669,10 +1734,12 @@
     {
       "name": "Scrophulariaceae",
       "level": "family",
+      "actualChildCount": 81,
       "children": [
         {
           "name": "Verbascum",
           "level": "genus",
+          "actualChildCount": 794,
           "children": [
             {
               "name": "Verbascum phlomoides",
@@ -1735,6 +1802,7 @@
         {
           "name": "Scrophularia",
           "level": "genus",
+          "actualChildCount": 313,
           "children": [
             {
               "name": "Scrophularia marilandica",
@@ -1757,6 +1825,7 @@
         {
           "name": "Eremophila",
           "level": "genus",
+          "actualChildCount": 249,
           "children": [
             {
               "name": "Eremophila alternifolia",
@@ -1779,6 +1848,7 @@
         {
           "name": "Selago",
           "level": "genus",
+          "actualChildCount": 199,
           "children": [
             {
               "name": "Selago corymbosa",
@@ -1801,6 +1871,7 @@
         {
           "name": "Buddleja",
           "level": "genus",
+          "actualChildCount": 129,
           "children": [
             {
               "name": "Buddleja americana",
@@ -1825,10 +1896,12 @@
     {
       "name": "Verbenaceae",
       "level": "family",
+      "actualChildCount": 43,
       "children": [
         {
           "name": "Verbena",
           "level": "genus",
+          "actualChildCount": 202,
           "children": [
             {
               "name": "Verbena bonariensis",
@@ -1851,6 +1924,7 @@
         {
           "name": "Lippia",
           "level": "genus",
+          "actualChildCount": 189,
           "children": [
             {
               "name": "Lippia americana",
@@ -1873,6 +1947,7 @@
         {
           "name": "Lantana",
           "level": "genus",
+          "actualChildCount": 159,
           "children": [
             {
               "name": "Lantana trifolia",
@@ -1897,10 +1972,12 @@
     {
       "name": "Bignoniaceae",
       "level": "family",
+      "actualChildCount": 103,
       "children": [
         {
           "name": "Adenocalymma",
           "level": "genus",
+          "actualChildCount": 101,
           "children": [
             {
               "name": "Adenocalymma bracteolatum",
@@ -1923,6 +2000,7 @@
         {
           "name": "Bignonia",
           "level": "genus",
+          "actualChildCount": 91,
           "children": [
             {
               "name": "Bignonia aequinoctialis",
@@ -1945,6 +2023,7 @@
         {
           "name": "Tabebuia",
           "level": "genus",
+          "actualChildCount": 83,
           "children": [
             {
               "name": "Tabebuia haemantha",
@@ -1967,6 +2046,7 @@
         {
           "name": "Fridericia",
           "level": "genus",
+          "actualChildCount": 64,
           "children": [
             {
               "name": "Fridericia speciosa",
@@ -1989,6 +2069,7 @@
         {
           "name": "Jacaranda",
           "level": "genus",
+          "actualChildCount": 55,
           "children": [
             {
               "name": "Jacaranda caerulea",
@@ -2011,6 +2092,7 @@
         {
           "name": "Anemopaegma",
           "level": "genus",
+          "actualChildCount": 52,
           "children": [
             {
               "name": "Anemopaegma album",
@@ -2033,6 +2115,7 @@
         {
           "name": "Amphilophium",
           "level": "genus",
+          "actualChildCount": 49,
           "children": [
             {
               "name": "Amphilophium paniculatum",
@@ -2057,10 +2140,12 @@
     {
       "name": "Oleaceae",
       "level": "family",
+      "actualChildCount": 42,
       "children": [
         {
           "name": "Jasminum",
           "level": "genus",
+          "actualChildCount": 245,
           "children": [
             {
               "name": "Jasminum azoricum",
@@ -2083,6 +2168,7 @@
         {
           "name": "Chionanthus",
           "level": "genus",
+          "actualChildCount": 150,
           "children": [
             {
               "name": "Chionanthus virginicus",
@@ -2105,6 +2191,7 @@
         {
           "name": "Fraxinus",
           "level": "genus",
+          "actualChildCount": 128,
           "children": [
             {
               "name": "Fraxinus ornus",
@@ -2129,10 +2216,12 @@
     {
       "name": "Lentibulariaceae",
       "level": "family",
+      "actualChildCount": 4,
       "children": [
         {
           "name": "Utricularia",
           "level": "genus",
+          "actualChildCount": 287,
           "children": [
             {
               "name": "Utricularia minor",
@@ -2163,6 +2252,7 @@
         {
           "name": "Pinguicula",
           "level": "genus",
+          "actualChildCount": 131,
           "children": [
             {
               "name": "Pinguicula vulgaris",
@@ -2185,6 +2275,7 @@
         {
           "name": "Genlisea",
           "level": "genus",
+          "actualChildCount": 29,
           "children": [
             {
               "name": "Genlisea violacea",
