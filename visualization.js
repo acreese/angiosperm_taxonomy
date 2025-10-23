@@ -3,21 +3,70 @@ const width = 1200;
 const height = 1200;
 const radius = Math.min(width, height) / 2 - 100;
 
-// Color scale for different taxonomic levels
-const colorScale = {
-    order: '#2c5f2d',
-    family: '#4a7c59',
-    genus: '#69b578',
-    species: '#97d492'
-};
+// Hue range for gradient around circle
+const HUE_START = 100;  // Lime-green
+const HUE_END = 260;    // Purple
+const BASE_SATURATION = 50;
+
+// Map to store family hue assignments
+let familyHueMap = new Map();
+
+// Function to get color for a node based on its family and depth
+function getNodeColor(node) {
+    // Find which family this node belongs to
+    let familyNode = node;
+    while (familyNode && familyNode.depth > 1) {
+        familyNode = familyNode.parent;
+    }
+
+    // If this is order level, use neutral dark green
+    if (node.depth === 0) {
+        return 'hsl(150, 40%, 20%)'; // Dark green for Lamiales
+    }
+
+    // Get or assign hue for this family
+    let hue;
+    if (familyNode && familyNode.depth === 1) {
+        if (!familyHueMap.has(familyNode)) {
+            // Assign hue based on family's angular position
+            const angle = familyNode.x; // radians, 0 to 2π
+            const normalizedAngle = angle / (2 * Math.PI); // 0 to 1
+            hue = HUE_START + (normalizedAngle * (HUE_END - HUE_START));
+            familyHueMap.set(familyNode, hue);
+        } else {
+            hue = familyHueMap.get(familyNode);
+        }
+    } else {
+        hue = 150; // Default green if something goes wrong
+    }
+
+    // Apply dark-to-light gradient based on depth
+    let lightness, saturation;
+    if (node.depth === 1) { // Family
+        lightness = 30;
+        saturation = BASE_SATURATION;
+    } else if (node.depth === 2) { // Genus
+        lightness = 50;
+        saturation = BASE_SATURATION - 5;
+    } else { // Species
+        lightness = 70;
+        saturation = BASE_SATURATION - 10;
+    }
+
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+}
 
 // Create SVG container
-const svg = d3.select('#visualization')
+const svgElement = d3.select('#visualization')
     .append('svg')
     .attr('width', width)
-    .attr('height', height)
-    .append('g')
+    .attr('height', height);
+
+const svg = svgElement.append('g')
     .attr('transform', `translate(${width / 2},${height / 2})`);
+
+// Track current focus node
+let currentFocus = null;
 
 // Create cluster layout (better for radial distribution)
 const tree = d3.cluster()
@@ -67,22 +116,150 @@ d3.json('lamiales_hierarchy.json').then(data => {
             translate(${d.y},0)
         `);
 
+    // Zoom function
+    function zoomToNode(d) {
+        currentFocus = d;
+
+        // Calculate transform
+        const angle = d.x;
+        const radius = d.y;
+
+        // Calculate center position in Cartesian coordinates
+        const x = radius * Math.sin(angle);
+        const y = -radius * Math.cos(angle);
+
+        // Zoom scale - zoom more for nodes further out
+        const scale = d.depth === 0 ? 1 : d.depth === 1 ? 2.5 : 3.5;
+
+        // Transform to center the clicked node
+        svg.transition()
+            .duration(750)
+            .attr('transform', `translate(${width / 2},${height / 2}) scale(${scale}) translate(${-x},${-y})`);
+
+        // Update node visibility/opacity based on focus
+        nodes.transition()
+            .duration(750)
+            .style('opacity', node => {
+                // Show the focused node and its descendants
+                if (node === d) return 1;
+                if (node.ancestors().includes(d)) return 0.3; // ancestors dimmed
+                if (d.ancestors().includes(node)) return 1; // show path to root
+
+                // Check if node is a descendant of focused node
+                let current = node;
+                while (current.parent) {
+                    if (current.parent === d) return 1;
+                    current = current.parent;
+                }
+                return 0.15; // dim unrelated nodes
+            });
+
+        links.transition()
+            .duration(750)
+            .style('opacity', link => {
+                // Show links in the focused subtree
+                if (link.source === d || link.target === d) return 1;
+                if (d.ancestors().includes(link.source) || d.ancestors().includes(link.target)) return 0.6;
+
+                // Check if link is within focused subtree
+                let current = link.target;
+                while (current.parent) {
+                    if (current.parent === d) return 1;
+                    current = current.parent;
+                }
+                return 0.1;
+            });
+    }
+
+    // Reset zoom function
+    function resetZoom() {
+        currentFocus = null;
+
+        svg.transition()
+            .duration(750)
+            .attr('transform', `translate(${width / 2},${height / 2})`);
+
+        nodes.transition()
+            .duration(750)
+            .style('opacity', 1);
+
+        links.transition()
+            .duration(750)
+            .style('opacity', 1);
+    }
+
     // Add circles for nodes
     nodes.append('circle')
         .attr('r', d => {
             // Size based on depth/level
-            if (d.depth === 0) return 8; // order
-            if (d.depth === 1) return 6; // family
-            if (d.depth === 2) return 4; // genus
-            return 3; // species
+            if (d.depth === 0) return 24; // order
+            if (d.depth === 1) return 9; // family (1.5x original)
+            if (d.depth === 2) return 6; // genus (1.5x original)
+            return 3; // species (unchanged)
         })
-        .style('fill', d => colorScale[d.data.level] || '#97d492')
+        .style('fill', d => getNodeColor(d))
+        .style('cursor', d => d.children ? 'pointer' : 'default') // pointer for clickable nodes
+        .on('click', function(event, d) {
+            event.stopPropagation();
+            if (d.children) { // Only allow zoom on nodes with children
+                if (currentFocus === d) {
+                    resetZoom(); // Click again to reset
+                } else {
+                    zoomToNode(d);
+                }
+            }
+        })
         .on('mouseover', function(event, d) {
-            // Highlight node
-            d3.select(this)
+            // Get all descendants of hovered node
+            const descendants = d.descendants();
+            const descendantSet = new Set(descendants);
+
+            // Enlarge hovered node and descendants
+            nodes.selectAll('circle')
                 .transition()
                 .duration(200)
-                .attr('r', parseFloat(d3.select(this).attr('r')) * 1.5);
+                .attr('r', function(node) {
+                    // Get original radius
+                    let originalR = 3;
+                    if (node.depth === 0) originalR = 24;
+                    else if (node.depth === 1) originalR = 9;
+                    else if (node.depth === 2) originalR = 6;
+
+                    // Enlarge if it's the hovered node or a descendant
+                    if (descendantSet.has(node)) {
+                        return originalR * 1.8;
+                    }
+                    return originalR;
+                });
+
+            // Dim/brighten nodes based on relationship to hovered node
+            nodes.transition()
+                .duration(200)
+                .style('opacity', node => {
+                    if (descendantSet.has(node)) return 1; // Full brightness for subtree
+                    if (d.ancestors().includes(node)) return 0.7; // Ancestors slightly visible
+                    return 0.2; // Dim unrelated nodes
+                });
+
+            // Highlight links in the subtree
+            links.transition()
+                .duration(200)
+                .style('opacity', link => {
+                    if (descendantSet.has(link.target) || descendantSet.has(link.source)) {
+                        return 1; // Full brightness for subtree links
+                    }
+                    if (d.ancestors().includes(link.target) || d.ancestors().includes(link.source)) {
+                        return 0.5; // Ancestors somewhat visible
+                    }
+                    return 0.1; // Dim unrelated links
+                })
+                .style('stroke-width', link => {
+                    // Thicken links in the focused subtree
+                    if (descendantSet.has(link.target)) {
+                        return '2.5px';
+                    }
+                    return '1.5px';
+                });
 
             // Show tooltip
             tooltip.classed('visible', true)
@@ -95,16 +272,53 @@ d3.json('lamiales_hierarchy.json').then(data => {
                 .style('top', (event.pageY - 10) + 'px');
         })
         .on('mouseout', function(event, d) {
-            // Reset node size
-            d3.select(this)
+            // Reset all node sizes to original
+            nodes.selectAll('circle')
                 .transition()
                 .duration(200)
-                .attr('r', d => {
-                    if (d.depth === 0) return 8;
-                    if (d.depth === 1) return 6;
-                    if (d.depth === 2) return 4;
+                .attr('r', node => {
+                    if (node.depth === 0) return 24;
+                    if (node.depth === 1) return 9;
+                    if (node.depth === 2) return 6;
                     return 3;
                 });
+
+            // Reset node opacity (respect current zoom state if any)
+            if (currentFocus) {
+                // If zoomed, maintain the zoom opacity state
+                const focusDescendants = currentFocus.descendants();
+                const focusSet = new Set(focusDescendants);
+
+                nodes.transition()
+                    .duration(200)
+                    .style('opacity', node => {
+                        if (node === currentFocus) return 1;
+                        if (node.ancestors().includes(currentFocus)) return 0.3;
+                        if (currentFocus.ancestors().includes(node)) return 1;
+                        if (focusSet.has(node)) return 1;
+                        return 0.15;
+                    });
+
+                links.transition()
+                    .duration(200)
+                    .style('opacity', link => {
+                        if (link.source === currentFocus || link.target === currentFocus) return 1;
+                        if (currentFocus.ancestors().includes(link.source) || currentFocus.ancestors().includes(link.target)) return 0.6;
+                        if (focusSet.has(link.target)) return 1;
+                        return 0.1;
+                    })
+                    .style('stroke-width', '1.5px');
+            } else {
+                // No zoom, restore full visibility
+                nodes.transition()
+                    .duration(200)
+                    .style('opacity', 1);
+
+                links.transition()
+                    .duration(200)
+                    .style('opacity', 1)
+                    .style('stroke-width', '1.5px');
+            }
 
             // Hide tooltip
             tooltip.classed('visible', false);
@@ -120,22 +334,48 @@ d3.json('lamiales_hierarchy.json').then(data => {
             return '-0.5em'; // genera - offset above line
         })
         .attr('x', d => {
-            // Horizontal offset from node - larger for root and families
-            if (d.depth === 0) return 15; // root node - more space
-            if (d.depth === 1) return d.x < Math.PI === !d.children ? 12 : -12; // families - more space
-            return d.x < Math.PI === !d.children ? 6 : -6; // genera
+            // Horizontal offset from node
+            if (d.depth === 0) return 63; // root node - more padding to avoid overlap with circle
+            if (d.depth === 1) return d.x < Math.PI === !d.children ? 15 : -15; // families
+            return d.x < Math.PI === !d.children ? 12 : -12; // genera
         })
         .attr('text-anchor', d => {
-            if (d.depth === 0) return 'start'; // root always starts from right
+            if (d.depth === 0) return 'middle'; // center the rotated text
             return d.x < Math.PI === !d.children ? 'start' : 'end';
         })
-        .attr('transform', d => d.x >= Math.PI ? 'rotate(180)' : null)
+        .attr('transform', d => {
+            if (d.depth === 0) return 'rotate(-105)'; // rotate root label 90 degrees
+            return d.x >= Math.PI ? 'rotate(180)' : null;
+        })
         .text(d => d.data.name)
         .style('font-size', d => d.depth === 0 ? '14px' : d.depth === 1 ? '11px' : '9px')
         .style('font-weight', d => d.depth === 0 ? 'bold' : 'normal');
 
-    console.log(`Visualization loaded: ${root.descendants().length} total nodes`);
-    console.log(`Depth levels: ${root.height + 1}`);
+    // Calculate and display statistics
+    const allNodes = root.descendants();
+    const families = allNodes.filter(d => d.data.level === 'family').length;
+    const genera = allNodes.filter(d => d.data.level === 'genus').length;
+    const species = allNodes.filter(d => d.data.level === 'species').length;
+
+    // Update statistics panel
+    d3.select('#stat-total').text(allNodes.length);
+    d3.select('#stat-families').text(families);
+    d3.select('#stat-genera').text(genera);
+    d3.select('#stat-species').text(species);
+
+    // Click SVG background to reset zoom
+    svgElement.on('click', function(event) {
+        if (event.target === this || event.target.tagName === 'svg') {
+            resetZoom();
+        }
+    });
+
+    // Expose reset function globally for button
+    window.resetVisualizationZoom = resetZoom;
+
+    console.log(`Visualization loaded: ${allNodes.length} total nodes`);
+    console.log(`Families: ${families}, Genera: ${genera}, Species: ${species}`);
+    console.log(`Click on family or genus nodes to zoom in. Click again or click background to reset.`);
 }).catch(error => {
     console.error('Error loading data:', error);
     d3.select('#visualization')

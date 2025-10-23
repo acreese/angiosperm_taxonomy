@@ -13,7 +13,72 @@
             <p class="subtitle">A radial visualization of flowering plant taxonomy</p>
         </header>
 
-        <div id="visualization"></div>
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="panel legend-panel">
+                    <h3>Legend</h3>
+                    <p class="legend-note">Each family has a unique color</p>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <svg width="50" height="50">
+                                <circle cx="25" cy="25" r="24" class="legend-circle-order"></circle>
+                            </svg>
+                            <span>Order (Lamiales)</span>
+                        </div>
+                        <div class="legend-item">
+                            <svg width="22" height="22">
+                                <circle cx="11" cy="11" r="9" class="legend-circle-family"></circle>
+                            </svg>
+                            <span>Family (dark)</span>
+                        </div>
+                        <div class="legend-item">
+                            <svg width="16" height="16">
+                                <circle cx="8" cy="8" r="6" class="legend-circle-genus"></circle>
+                            </svg>
+                            <span>Genus (medium)</span>
+                        </div>
+                        <div class="legend-item">
+                            <svg width="10" height="10">
+                                <circle cx="5" cy="5" r="3" class="legend-circle-species"></circle>
+                            </svg>
+                            <span>Species (light)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel stats-panel">
+                    <h3>Statistics</h3>
+                    <div class="stats-items">
+                        <div class="stat-item">
+                            <span class="stat-label">Total Nodes:</span>
+                            <span class="stat-value" id="stat-total">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Families:</span>
+                            <span class="stat-value" id="stat-families">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Genera:</span>
+                            <span class="stat-value" id="stat-genera">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Species:</span>
+                            <span class="stat-value" id="stat-species">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel controls-panel">
+                    <h3>Controls</h3>
+                    <button id="reset-zoom" class="reset-button" onclick="window.resetVisualizationZoom && window.resetVisualizationZoom()">
+                        Reset Zoom
+                    </button>
+                    <p class="hint">Hover to preview<br>Click to zoom</p>
+                </div>
+            </aside>
+
+            <div id="visualization"></div>
+        </div>
 
         <div id="tooltip" class="tooltip"></div>
     </div>
