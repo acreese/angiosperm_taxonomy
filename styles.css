@@ -46,15 +46,12 @@ h1 {
 /* SVG styling */
 .node circle {
     fill: #69b578;
-    stroke: #2c5f2d;
-    stroke-width: 2px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .node circle:hover {
     fill: #85d196;
-    stroke-width: 3px;
 }
 
 .node text {

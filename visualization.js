@@ -117,7 +117,7 @@ d3.json('lamiales_hierarchy.json').then(data => {
             // Vertical offset adjustment
             if (d.depth === 0) return '0.31em'; // center node
             if (d.depth === 1) return '-0.5em'; // families - offset above line
-            return '0.31em'; // genera
+            return '-0.5em'; // genera - offset above line
         })
         .attr('x', d => {
             // Horizontal offset from node - larger for root and families
