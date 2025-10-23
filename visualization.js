@@ -41,9 +41,20 @@ d3.json('lamiales_hierarchy.json').then(data => {
         .enter()
         .append('path')
         .attr('class', 'link')
-        .attr('d', d3.linkRadial()
-            .angle(d => d.x)
-            .radius(d => d.y));
+        .attr('d', d => {
+            // For links from the root node, draw straight radial lines
+            if (d.source.depth === 0) {
+                const startX = 0;
+                const startY = 0;
+                const endX = d.target.y * Math.sin(d.target.x);
+                const endY = -d.target.y * Math.cos(d.target.x);
+                return `M${startX},${startY}L${endX},${endY}`;
+            }
+            // For other links, use curved radial links
+            return d3.linkRadial()
+                .angle(d => d.x)
+                .radius(d => d.y)(d);
+        });
 
     // Draw nodes
     const nodes = svg.selectAll('.node')
