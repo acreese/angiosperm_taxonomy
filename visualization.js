@@ -43,13 +43,13 @@ function getNodeColor(node) {
     // Apply dark-to-light gradient based on depth
     let lightness, saturation;
     if (node.depth === 1) { // Family
-        lightness = 30;
+        lightness = 45;  // Increased from 30 to be lighter
         saturation = BASE_SATURATION;
     } else if (node.depth === 2) { // Genus
-        lightness = 50;
+        lightness = 60;  // Increased from 50
         saturation = BASE_SATURATION - 5;
     } else { // Species
-        lightness = 70;
+        lightness = 75;  // Increased from 70
         saturation = BASE_SATURATION - 10;
     }
 
@@ -373,11 +373,27 @@ function loadVisualization(filename) {
     const genera = allNodes.filter(d => d.data.level === 'genus').length;
     const species = allNodes.filter(d => d.data.level === 'species').length;
 
-    // Update statistics panel
+    // Calculate actual totals from actualChildCount fields
+    const actualFamilies = root.data.actualChildCount || families;
+
+    // Sum all family nodes' actualChildCount for total genera
+    const familyNodes = allNodes.filter(d => d.data.level === 'family');
+    const actualGenera = familyNodes.reduce((sum, node) => sum + (node.data.actualChildCount || 0), 0);
+
+    // Sum all genus nodes' actualChildCount for total species
+    const genusNodes = allNodes.filter(d => d.data.level === 'genus');
+    const actualSpecies = genusNodes.reduce((sum, node) => sum + (node.data.actualChildCount || 0), 0);
+
+    // Update statistics panel - displayed counts
     d3.select('#stat-total').text(allNodes.length);
     d3.select('#stat-families').text(families);
     d3.select('#stat-genera').text(genera);
     d3.select('#stat-species').text(species);
+
+    // Update statistics panel - actual totals
+    d3.select('#stat-families-actual').text(actualFamilies);
+    d3.select('#stat-genera-actual').text(actualGenera.toLocaleString());
+    d3.select('#stat-species-actual').text(actualSpecies.toLocaleString());
 
     // Click SVG background to reset zoom
     svgElement.on('click', function(event) {
