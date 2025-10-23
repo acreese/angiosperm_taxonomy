@@ -19,8 +19,8 @@ const svg = d3.select('#visualization')
     .append('g')
     .attr('transform', `translate(${width / 2},${height / 2})`);
 
-// Create tree layout
-const tree = d3.tree()
+// Create cluster layout (better for radial distribution)
+const tree = d3.cluster()
     .size([2 * Math.PI, radius])
     .separation((a, b) => (a.parent == b.parent ? 1 : 2) / a.depth);
 
@@ -102,9 +102,22 @@ d3.json('lamiales_hierarchy.json').then(data => {
     // Add text labels (only for families and genera, to avoid clutter)
     nodes.filter(d => d.depth <= 2)
         .append('text')
-        .attr('dy', '0.31em')
-        .attr('x', d => d.x < Math.PI === !d.children ? 6 : -6)
-        .attr('text-anchor', d => d.x < Math.PI === !d.children ? 'start' : 'end')
+        .attr('dy', d => {
+            // Vertical offset adjustment
+            if (d.depth === 0) return '0.31em'; // center node
+            if (d.depth === 1) return '-0.5em'; // families - offset above line
+            return '0.31em'; // genera
+        })
+        .attr('x', d => {
+            // Horizontal offset from node - larger for root and families
+            if (d.depth === 0) return 15; // root node - more space
+            if (d.depth === 1) return d.x < Math.PI === !d.children ? 12 : -12; // families - more space
+            return d.x < Math.PI === !d.children ? 6 : -6; // genera
+        })
+        .attr('text-anchor', d => {
+            if (d.depth === 0) return 'start'; // root always starts from right
+            return d.x < Math.PI === !d.children ? 'start' : 'end';
+        })
         .attr('transform', d => d.x >= Math.PI ? 'rotate(180)' : null)
         .text(d => d.data.name)
         .style('font-size', d => d.depth === 0 ? '14px' : d.depth === 1 ? '11px' : '9px')
