@@ -88,17 +88,17 @@ function getLinkColor(node, dimLevel = 0) {
         }
 
         // 🎨 ADJUST SATURATION HERE: Increase from 25% to make links more saturated
-        baseSaturation = 35;  // Try values between 25-50
-        baseLightness = 85;
+        baseSaturation = 30;  // Try values between 25-50
+        baseLightness = 70;
     }
 
     // Apply dimming by reducing lightness (no transparency needed)
     // dimLevel: 0 = normal, 1 = slightly dimmed, 2 = very dimmed
     let lightness = baseLightness;
     if (dimLevel === 1) {
-        lightness = baseLightness - 15; // Slightly darker
+        lightness = baseLightness + 5 ; // Slightly lighter
     } else if (dimLevel === 2) {
-        lightness = baseLightness - 35; // Much darker
+        lightness = baseLightness + 15; // Much lighter
     }
 
     return `hsl(${hue}, ${baseSaturation}%, ${lightness}%)`;
