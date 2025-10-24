@@ -56,6 +56,39 @@ function getNodeColor(node) {
     return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 }
 
+// Function to get pale color for links (same hue as nodes, but lighter)
+function getLinkColor(node) {
+    // Find which family this node belongs to
+    let familyNode = node;
+    while (familyNode && familyNode.depth > 1) {
+        familyNode = familyNode.parent;
+    }
+
+    // If this is order level, use neutral pale green
+    if (node.depth === 0) {
+        return 'hsl(150, 20%, 85%)'; // Pale green for Lamiales links
+    }
+
+    // Get or assign hue for this family
+    let hue;
+    if (familyNode && familyNode.depth === 1) {
+        if (!familyHueMap.has(familyNode)) {
+            // Assign hue based on family's angular position
+            const angle = familyNode.x; // radians, 0 to 2π
+            const normalizedAngle = angle / (2 * Math.PI); // 0 to 1
+            hue = HUE_START + (normalizedAngle * (HUE_END - HUE_START));
+            familyHueMap.set(familyNode, hue);
+        } else {
+            hue = familyHueMap.get(familyNode);
+        }
+    } else {
+        hue = 150; // Default green if something goes wrong
+    }
+
+    // Pale color: same hue, low saturation, high lightness
+    return `hsl(${hue}, 25%, 85%)`;
+}
+
 // Create SVG container
 const svgElement = d3.select('#visualization')
     .append('svg')
@@ -110,7 +143,9 @@ function loadVisualization(filename) {
             return d3.linkRadial()
                 .angle(d => d.x)
                 .radius(d => d.y)(d);
-        });
+        })
+        .style('stroke', d => getLinkColor(d.target))
+        .style('opacity', 1); // No transparency - solid pale color
 
     // Draw nodes
     const nodes = svg.selectAll('.node')
