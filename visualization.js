@@ -60,9 +60,9 @@ function getNodeColor(node, dimLevel = 0) {
     // Apply dimming by increasing lightness (making paler)
     let lightness = baseLightness;
     if (dimLevel === 1) {
-        lightness = Math.min(baseLightness + 20, 95); // Lighten for dim
+        lightness = Math.min(baseLightness + 15, 95); // Lighten for dim
     } else if (dimLevel === 2) {
-        lightness = Math.min(baseLightness + 35, 95); // Lighten more for very dim
+        lightness = Math.min(baseLightness + 25, 95); // Lighten more for very dim
     }
 
     return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
