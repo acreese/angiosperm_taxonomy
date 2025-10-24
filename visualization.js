@@ -288,7 +288,7 @@ function loadVisualization(filename) {
             const descendants = d.descendants();
             const descendantSet = new Set(descendants);
 
-            // Enlarge hovered node and descendants - EXTREME TEST
+            // COMBINED: Change both size AND color in ONE transition to avoid conflicts
             nodes.selectAll('circle')
                 .transition()
                 .duration(200)
@@ -299,11 +299,7 @@ function loadVisualization(filename) {
                         return 50; // HUGE for testing
                     }
                     return 2; // tiny
-                });
-
-            // Dim/brighten nodes based on relationship to hovered node
-            nodes.selectAll('circle').transition()
-                .duration(200)
+                })
                 .style('fill', node => {
                     if (descendantSet.has(node)) return getNodeColor(node, 0); // Full brightness for subtree
                     if (d.ancestors().includes(node)) return getNodeColor(node, 1); // Ancestors slightly dimmed
