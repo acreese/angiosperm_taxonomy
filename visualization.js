@@ -286,7 +286,7 @@ function loadVisualization(filename) {
             const descendants = d.descendants();
             const descendantSet = new Set(descendants);
 
-            // Enlarge hovered node and descendants
+            // Slightly enlarge hovered node and descendants
             nodes.selectAll('circle')
                 .transition()
                 .duration(200)
@@ -297,20 +297,11 @@ function loadVisualization(filename) {
                     else if (node.depth === 1) originalR = 9;
                     else if (node.depth === 2) originalR = 6;
 
-                    // Enlarge if it's the hovered node or a descendant
+                    // Slightly enlarge if it's the hovered node or a descendant (5% larger)
                     if (descendantSet.has(node)) {
-                        return originalR * 1.8;
+                        return originalR * 1.05;
                     }
                     return originalR;
-                });
-
-            // Bold text for hovered subtree
-            nodes.selectAll('text')
-                .transition()
-                .duration(200)
-                .style('font-weight', node => {
-                    if (descendantSet.has(node)) return 'bold';
-                    return node.depth === 0 ? 'bold' : 'normal'; // Root always bold
                 });
 
             // Dim/brighten nodes based on relationship to hovered node
@@ -372,12 +363,6 @@ function loadVisualization(filename) {
                     if (node.depth === 2) return 6;
                     return 3;
                 });
-
-            // Reset text font-weight
-            nodes.selectAll('text')
-                .transition()
-                .duration(200)
-                .style('font-weight', node => node.depth === 0 ? 'bold' : 'normal');
 
             // Reset node colors (respect current zoom state if any)
             if (currentFocus) {
