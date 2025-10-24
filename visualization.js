@@ -282,26 +282,23 @@ function loadVisualization(filename) {
             }
         })
         .on('mouseover', function(event, d) {
+            console.log('Hover detected on:', d.data.name); // DEBUG
+
             // Get all descendants of hovered node
             const descendants = d.descendants();
             const descendantSet = new Set(descendants);
 
-            // Slightly enlarge hovered node and descendants
+            // Enlarge hovered node and descendants - EXTREME TEST
             nodes.selectAll('circle')
                 .transition()
                 .duration(200)
                 .attr('r', node => {
-                    // Get original radius
-                    let originalR = 3;
-                    if (node.depth === 0) originalR = 24;
-                    else if (node.depth === 1) originalR = 9;
-                    else if (node.depth === 2) originalR = 6;
-
-                    // Slightly enlarge if it's the hovered node or a descendant
+                    // Extreme test: make everything huge or tiny
                     if (descendantSet.has(node)) {
-                        return originalR * 1.1; // 10% larger for testing
+                        console.log('Enlarging node:', node.data.name, 'to radius 50'); // DEBUG
+                        return 50; // HUGE for testing
                     }
-                    return originalR;
+                    return 2; // tiny
                 });
 
             // Dim/brighten nodes based on relationship to hovered node
