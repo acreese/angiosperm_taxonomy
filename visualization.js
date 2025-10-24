@@ -299,7 +299,7 @@ function loadVisualization(filename) {
 
                     // 10% larger for hovered subtree
                     if (descendantSet.has(node)) {
-                        return originalR * 1.1;
+                        return originalR * 1.2;
                     }
                     return originalR;
                 })
