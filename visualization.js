@@ -57,36 +57,51 @@ function getNodeColor(node) {
 }
 
 // Function to get pale color for links (same hue as nodes, but lighter)
-function getLinkColor(node) {
+function getLinkColor(node, dimLevel = 0) {
     // Find which family this node belongs to
     let familyNode = node;
     while (familyNode && familyNode.depth > 1) {
         familyNode = familyNode.parent;
     }
 
+    let hue, baseSaturation, baseLightness;
+
     // If this is order level, use neutral pale green
     if (node.depth === 0) {
-        return 'hsl(150, 20%, 85%)'; // Pale green for Lamiales links
-    }
-
-    // Get or assign hue for this family
-    let hue;
-    if (familyNode && familyNode.depth === 1) {
-        if (!familyHueMap.has(familyNode)) {
-            // Assign hue based on family's angular position
-            const angle = familyNode.x; // radians, 0 to 2π
-            const normalizedAngle = angle / (2 * Math.PI); // 0 to 1
-            hue = HUE_START + (normalizedAngle * (HUE_END - HUE_START));
-            familyHueMap.set(familyNode, hue);
-        } else {
-            hue = familyHueMap.get(familyNode);
-        }
+        hue = 150;
+        baseSaturation = 25;
+        baseLightness = 85;
     } else {
-        hue = 150; // Default green if something goes wrong
+        // Get or assign hue for this family
+        if (familyNode && familyNode.depth === 1) {
+            if (!familyHueMap.has(familyNode)) {
+                // Assign hue based on family's angular position
+                const angle = familyNode.x; // radians, 0 to 2π
+                const normalizedAngle = angle / (2 * Math.PI); // 0 to 1
+                hue = HUE_START + (normalizedAngle * (HUE_END - HUE_START));
+                familyHueMap.set(familyNode, hue);
+            } else {
+                hue = familyHueMap.get(familyNode);
+            }
+        } else {
+            hue = 150; // Default green if something goes wrong
+        }
+
+        // 🎨 ADJUST SATURATION HERE: Increase from 25% to make links more saturated
+        baseSaturation = 35;  // Try values between 25-50
+        baseLightness = 85;
     }
 
-    // Pale color: same hue, low saturation, high lightness
-    return `hsl(${hue}, 25%, 85%)`;
+    // Apply dimming by reducing lightness (no transparency needed)
+    // dimLevel: 0 = normal, 1 = slightly dimmed, 2 = very dimmed
+    let lightness = baseLightness;
+    if (dimLevel === 1) {
+        lightness = baseLightness - 15; // Slightly darker
+    } else if (dimLevel === 2) {
+        lightness = baseLightness - 35; // Much darker
+    }
+
+    return `hsl(${hue}, ${baseSaturation}%, ${lightness}%)`;
 }
 
 // Create SVG container
@@ -144,8 +159,7 @@ function loadVisualization(filename) {
                 .angle(d => d.x)
                 .radius(d => d.y)(d);
         })
-        .style('stroke', d => getLinkColor(d.target))
-        .style('opacity', 1); // No transparency - solid pale color
+        .style('stroke', d => getLinkColor(d.target, 0)); // Start at full brightness (dimLevel 0)
 
     // Draw nodes
     const nodes = svg.selectAll('.node')
@@ -198,18 +212,20 @@ function loadVisualization(filename) {
 
         links.transition()
             .duration(750)
-            .style('opacity', link => {
-                // Show links in the focused subtree
-                if (link.source === d || link.target === d) return 1;
-                if (d.ancestors().includes(link.source) || d.ancestors().includes(link.target)) return 0.6;
+            .style('stroke', link => {
+                // Determine dimming level based on focus
+                if (link.source === d || link.target === d) return getLinkColor(link.target, 0);
+                if (d.ancestors().includes(link.source) || d.ancestors().includes(link.target)) {
+                    return getLinkColor(link.target, 1);
+                }
 
                 // Check if link is within focused subtree
                 let current = link.target;
                 while (current.parent) {
-                    if (current.parent === d) return 1;
+                    if (current.parent === d) return getLinkColor(link.target, 0);
                     current = current.parent;
                 }
-                return 0.1;
+                return getLinkColor(link.target, 2);
             });
     }
 
@@ -227,7 +243,7 @@ function loadVisualization(filename) {
 
         links.transition()
             .duration(750)
-            .style('opacity', 1);
+            .style('stroke', link => getLinkColor(link.target, 0));
     }
 
     // Add circles for nodes
@@ -295,14 +311,14 @@ function loadVisualization(filename) {
             // Highlight links in the subtree
             links.transition()
                 .duration(200)
-                .style('opacity', link => {
+                .style('stroke', link => {
                     if (descendantSet.has(link.target) || descendantSet.has(link.source)) {
-                        return 1; // Full brightness for subtree links
+                        return getLinkColor(link.target, 0); // Full brightness for subtree links
                     }
                     if (d.ancestors().includes(link.target) || d.ancestors().includes(link.source)) {
-                        return 0.5; // Ancestors somewhat visible
+                        return getLinkColor(link.target, 1); // Ancestors somewhat dimmed
                     }
-                    return 0.1; // Dim unrelated links
+                    return getLinkColor(link.target, 2); // Dim unrelated links
                 })
                 .style('stroke-width', link => {
                     // Thicken links in the focused subtree
@@ -367,11 +383,15 @@ function loadVisualization(filename) {
 
                 links.transition()
                     .duration(200)
-                    .style('opacity', link => {
-                        if (link.source === currentFocus || link.target === currentFocus) return 1;
-                        if (currentFocus.ancestors().includes(link.source) || currentFocus.ancestors().includes(link.target)) return 0.6;
-                        if (focusSet.has(link.target)) return 1;
-                        return 0.1;
+                    .style('stroke', link => {
+                        if (link.source === currentFocus || link.target === currentFocus) {
+                            return getLinkColor(link.target, 0);
+                        }
+                        if (currentFocus.ancestors().includes(link.source) || currentFocus.ancestors().includes(link.target)) {
+                            return getLinkColor(link.target, 1);
+                        }
+                        if (focusSet.has(link.target)) return getLinkColor(link.target, 0);
+                        return getLinkColor(link.target, 2);
                     })
                     .style('stroke-width', '1.5px');
             } else {
@@ -382,7 +402,7 @@ function loadVisualization(filename) {
 
                 links.transition()
                     .duration(200)
-                    .style('opacity', 1)
+                    .style('stroke', link => getLinkColor(link.target, 0))
                     .style('stroke-width', '1.5px');
             }
 
