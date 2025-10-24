@@ -282,23 +282,26 @@ function loadVisualization(filename) {
             }
         })
         .on('mouseover', function(event, d) {
-            console.log('Hover detected on:', d.data.name); // DEBUG
-
             // Get all descendants of hovered node
             const descendants = d.descendants();
             const descendantSet = new Set(descendants);
 
-            // COMBINED: Change both size AND color in ONE transition to avoid conflicts
+            // Change both size AND color in ONE transition to avoid conflicts
             nodes.selectAll('circle')
                 .transition()
                 .duration(200)
                 .attr('r', node => {
-                    // Extreme test: make everything huge or tiny
+                    // Get original radius
+                    let originalR = 3;
+                    if (node.depth === 0) originalR = 24;
+                    else if (node.depth === 1) originalR = 9;
+                    else if (node.depth === 2) originalR = 6;
+
+                    // 10% larger for hovered subtree
                     if (descendantSet.has(node)) {
-                        console.log('Enlarging node:', node.data.name, 'to radius 50'); // DEBUG
-                        return 50; // HUGE for testing
+                        return originalR * 1.1;
                     }
-                    return 2; // tiny
+                    return originalR;
                 })
                 .style('fill', node => {
                     if (descendantSet.has(node)) return getNodeColor(node, 0); // Full brightness for subtree
@@ -346,25 +349,21 @@ function loadVisualization(filename) {
                 .style('top', (event.pageY - 10) + 'px');
         })
         .on('mouseout', function(event, d) {
-            // Reset all node sizes to original
-            nodes.selectAll('circle')
-                .transition()
-                .duration(200)
-                .attr('r', node => {
-                    if (node.depth === 0) return 24;
-                    if (node.depth === 1) return 9;
-                    if (node.depth === 2) return 6;
-                    return 3;
-                });
-
             // Reset node colors (respect current zoom state if any)
             if (currentFocus) {
                 // If zoomed, maintain the zoom color state
                 const focusDescendants = currentFocus.descendants();
                 const focusSet = new Set(focusDescendants);
 
+                // COMBINED transition: reset size AND color together
                 nodes.selectAll('circle').transition()
                     .duration(200)
+                    .attr('r', node => {
+                        if (node.depth === 0) return 24;
+                        if (node.depth === 1) return 9;
+                        if (node.depth === 2) return 6;
+                        return 3;
+                    })
                     .style('fill', node => {
                         if (node === currentFocus) return getNodeColor(node, 0);
                         if (currentFocus.ancestors().includes(node)) return getNodeColor(node, 0);
@@ -387,9 +386,15 @@ function loadVisualization(filename) {
                     })
                     .style('stroke-width', '1.5px');
             } else {
-                // No zoom, restore full brightness
+                // No zoom, restore full brightness and original size
                 nodes.selectAll('circle').transition()
                     .duration(200)
+                    .attr('r', node => {
+                        if (node.depth === 0) return 24;
+                        if (node.depth === 1) return 9;
+                        if (node.depth === 2) return 6;
+                        return 3;
+                    })
                     .style('fill', node => getNodeColor(node, 0));
 
                 links.transition()
