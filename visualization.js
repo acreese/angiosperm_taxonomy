@@ -290,16 +290,16 @@ function loadVisualization(filename) {
             nodes.selectAll('circle')
                 .transition()
                 .duration(200)
-                .attr('r', function(node) {
+                .attr('r', node => {
                     // Get original radius
                     let originalR = 3;
                     if (node.depth === 0) originalR = 24;
                     else if (node.depth === 1) originalR = 9;
                     else if (node.depth === 2) originalR = 6;
 
-                    // Slightly enlarge if it's the hovered node or a descendant (5% larger)
+                    // Slightly enlarge if it's the hovered node or a descendant
                     if (descendantSet.has(node)) {
-                        return originalR * 1.05;
+                        return originalR * 1.1; // 10% larger for testing
                     }
                     return originalR;
                 });
