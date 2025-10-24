@@ -12,7 +12,7 @@ const BASE_SATURATION = 50;
 let familyHueMap = new Map();
 
 // Function to get color for a node based on its family and depth
-function getNodeColor(node) {
+function getNodeColor(node, dimLevel = 0) {
     // Find which family this node belongs to
     let familyNode = node;
     while (familyNode && familyNode.depth > 1) {
@@ -21,7 +21,11 @@ function getNodeColor(node) {
 
     // If this is order level, use neutral dark green
     if (node.depth === 0) {
-        return 'hsl(150, 40%, 20%)'; // Dark green for Lamiales
+        let baseLightness = 20;
+        let lightness = baseLightness;
+        if (dimLevel === 1) lightness = baseLightness + 20; // Lighten for dim
+        if (dimLevel === 2) lightness = baseLightness + 35; // Lighten more for very dim
+        return `hsl(150, 40%, ${lightness}%)`;
     }
 
     // Get or assign hue for this family
@@ -41,16 +45,24 @@ function getNodeColor(node) {
     }
 
     // Apply dark-to-light gradient based on depth
-    let lightness, saturation;
+    let baseLightness, saturation;
     if (node.depth === 1) { // Family
-        lightness = 45;  // Increased from 30 to be lighter
+        baseLightness = 45;  // Increased from 30 to be lighter
         saturation = BASE_SATURATION;
     } else if (node.depth === 2) { // Genus
-        lightness = 60;  // Increased from 50
+        baseLightness = 60;  // Increased from 50
         saturation = BASE_SATURATION - 5;
     } else { // Species
-        lightness = 75;  // Increased from 70
+        baseLightness = 75;  // Increased from 70
         saturation = BASE_SATURATION - 10;
+    }
+
+    // Apply dimming by increasing lightness (making paler)
+    let lightness = baseLightness;
+    if (dimLevel === 1) {
+        lightness = Math.min(baseLightness + 20, 95); // Lighten for dim
+    } else if (dimLevel === 2) {
+        lightness = Math.min(baseLightness + 35, 95); // Lighten more for very dim
     }
 
     return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
@@ -192,22 +204,24 @@ function loadVisualization(filename) {
             .duration(750)
             .attr('transform', `translate(${width / 2},${height / 2}) scale(${scale}) translate(${-x},${-y})`);
 
-        // Update node visibility/opacity based on focus
-        nodes.transition()
+        // Update node colors based on focus (no transparency)
+        nodes.selectAll('circle').transition()
             .duration(750)
-            .style('opacity', node => {
-                // Show the focused node and its descendants
-                if (node === d) return 1;
-                if (node.ancestors().includes(d)) return 0.3; // ancestors dimmed
-                if (d.ancestors().includes(node)) return 1; // show path to root
+            .style('fill', node => {
+                // Show the focused node and its descendants at full brightness
+                if (node === d) return getNodeColor(node, 0);
+                if (d.ancestors().includes(node)) return getNodeColor(node, 0); // show path to root
 
                 // Check if node is a descendant of focused node
                 let current = node;
                 while (current.parent) {
-                    if (current.parent === d) return 1;
+                    if (current.parent === d) return getNodeColor(node, 0);
                     current = current.parent;
                 }
-                return 0.15; // dim unrelated nodes
+
+                // Dim unrelated nodes by lightening them
+                if (node.ancestors().includes(d)) return getNodeColor(node, 1); // ancestors slightly dimmed
+                return getNodeColor(node, 2); // dim unrelated nodes more
             });
 
         links.transition()
@@ -237,9 +251,9 @@ function loadVisualization(filename) {
             .duration(750)
             .attr('transform', `translate(${width / 2},${height / 2})`);
 
-        nodes.transition()
+        nodes.selectAll('circle').transition()
             .duration(750)
-            .style('opacity', 1);
+            .style('fill', node => getNodeColor(node, 0));
 
         links.transition()
             .duration(750)
@@ -300,12 +314,12 @@ function loadVisualization(filename) {
                 });
 
             // Dim/brighten nodes based on relationship to hovered node
-            nodes.transition()
+            nodes.selectAll('circle').transition()
                 .duration(200)
-                .style('opacity', node => {
-                    if (descendantSet.has(node)) return 1; // Full brightness for subtree
-                    if (d.ancestors().includes(node)) return 0.7; // Ancestors slightly visible
-                    return 0.2; // Dim unrelated nodes
+                .style('fill', node => {
+                    if (descendantSet.has(node)) return getNodeColor(node, 0); // Full brightness for subtree
+                    if (d.ancestors().includes(node)) return getNodeColor(node, 1); // Ancestors slightly dimmed
+                    return getNodeColor(node, 2); // Dim unrelated nodes
                 });
 
             // Highlight links in the subtree
@@ -365,20 +379,20 @@ function loadVisualization(filename) {
                 .duration(200)
                 .style('font-weight', node => node.depth === 0 ? 'bold' : 'normal');
 
-            // Reset node opacity (respect current zoom state if any)
+            // Reset node colors (respect current zoom state if any)
             if (currentFocus) {
-                // If zoomed, maintain the zoom opacity state
+                // If zoomed, maintain the zoom color state
                 const focusDescendants = currentFocus.descendants();
                 const focusSet = new Set(focusDescendants);
 
-                nodes.transition()
+                nodes.selectAll('circle').transition()
                     .duration(200)
-                    .style('opacity', node => {
-                        if (node === currentFocus) return 1;
-                        if (node.ancestors().includes(currentFocus)) return 0.3;
-                        if (currentFocus.ancestors().includes(node)) return 1;
-                        if (focusSet.has(node)) return 1;
-                        return 0.15;
+                    .style('fill', node => {
+                        if (node === currentFocus) return getNodeColor(node, 0);
+                        if (currentFocus.ancestors().includes(node)) return getNodeColor(node, 0);
+                        if (focusSet.has(node)) return getNodeColor(node, 0);
+                        if (node.ancestors().includes(currentFocus)) return getNodeColor(node, 1);
+                        return getNodeColor(node, 2);
                     });
 
                 links.transition()
@@ -395,10 +409,10 @@ function loadVisualization(filename) {
                     })
                     .style('stroke-width', '1.5px');
             } else {
-                // No zoom, restore full visibility
-                nodes.transition()
+                // No zoom, restore full brightness
+                nodes.selectAll('circle').transition()
                     .duration(200)
-                    .style('opacity', 1);
+                    .style('fill', node => getNodeColor(node, 0));
 
                 links.transition()
                     .duration(200)
